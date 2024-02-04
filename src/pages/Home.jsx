@@ -1,8 +1,14 @@
 import React from "react";
 
-const Home = () => {
+function Home() {
 
-    return <div>Home Page</div>
+    return( 
+        <div className="container">
+    <h1>Welcome to the Project App</h1>
+    <h2> Home of Projects</h2>
+   
+    </div>
+)
 }
 
 export default Home;

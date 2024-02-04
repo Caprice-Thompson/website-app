@@ -1,5 +1,6 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
+import Search from './SearchBar';
 
  function NavBar(){
     return(
@@ -19,8 +20,9 @@ import {  Link } from "react-router-dom";
                 <a className='contactPage'>
                 <Link to="/contact">Contact Us</Link>
                 </a>
-
-      
+                <a className='searchBar'>
+                <Search/>
+                </a>
         </div>
     );
 }

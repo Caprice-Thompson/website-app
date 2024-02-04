@@ -7,6 +7,13 @@
   pointer-events: none;
 }
 
+.bodyContainer {
+  background-color: #191b25;
+/* background-image: url('../dist/background.jpg'); */
+background-size: cover; 
+background-repeat: no-repeat;
+}
+
 .navbar {
   text-align: right;
   background-color: #053ba7;
@@ -14,17 +21,29 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: right;
-  font-size: 30px;
+  font-size: 20px;
   height: 40px;
   pointer-events: auto;
   padding: 10;
-  margin: (20,20,20,20);
+}
+
+.container{
+  margin: 300px;
+
+}
+
+h1,
+h2 {
+color: aliceblue;
+padding: 10;
+font: 3em sans-serif;
 }
 
 a {
-  font-size: 30px;
+  font-size: 23px;
   color: white;
-  text-indent: 50px;
+  text-indent: 8px;
+  padding: 10px;
   }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,15 +52,8 @@ a {
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a.searchBar {
+  padding-right: 40px;
 }
 
 .App-link {
