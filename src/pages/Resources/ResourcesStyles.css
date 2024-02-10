@@ -1,0 +1,20 @@
+.resources button{
+    padding: 10px 20px 20px 20px;
+    background: #373737;
+    color:aliceblue;
+    font-weight: bold;
+    font-size:20px;
+    cursor: pointer;
+
+}
+
+.resources{
+    display: flex;
+    height: 5vh;
+    width: 150vw;
+    justify-content: left;
+    align-items: left;
+    gap: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
+}

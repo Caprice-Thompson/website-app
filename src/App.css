@@ -39,6 +39,10 @@ padding: 10;
 font: 3em sans-serif;
 }
 
+p{
+color: aquamarine;
+}
+
 a {
   font-size: 23px;
   color: white;
