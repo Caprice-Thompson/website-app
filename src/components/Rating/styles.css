@@ -1,7 +1,8 @@
-.active{
+  .star-rating .active {
     color: yellow;
-}
-
-.inactive{
-    color: black;
-}
+  }
+  
+  .star-rating .inactive {
+    color: rgb(41, 100, 216);
+  }
+  
