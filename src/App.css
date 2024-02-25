@@ -14,50 +14,10 @@ background-size: cover;
 background-repeat: no-repeat;
 }
 
-.navbar {
-  text-align: right;
-  background-color: #053ba7;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: right;
-  font-size: 20px;
-  height: 40px;
-  pointer-events: auto;
-  padding: 10;
-}
-
-.container{
-  margin: 300px;
-
-}
-
-h1,
-h2 {
-color: aliceblue;
-padding: 10;
-font: 3em sans-serif;
-}
-
-p{
-color: aquamarine;
-}
-
-a {
-  font-size: 23px;
-  color: white;
-  text-indent: 8px;
-  padding: 10px;
-  }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-a.searchBar {
-  padding-right: 40px;
 }
 
 .App-link {

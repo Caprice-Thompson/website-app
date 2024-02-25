@@ -1,5 +1,6 @@
 import React from "react";
 import StarRating from "../../components/Rating";
+import "./styles.css";
 
 function Home() {
   return (

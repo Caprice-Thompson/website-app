@@ -1,8 +1,24 @@
 .tic-tac-toe-container{
     clear: both;
-    content: "";
     display: table;
+    align-items: normal;    
+    position: fixed; /* or absolute */
+    top: 30%;
+    left: 41%;
 
+}
+.status{
+    position: fixed; /* or absolute */
+    top: 60%;
+    left: 45%;
+}
+
+h3 {
+color: aliceblue;
+padding: 10px;
+font: 3em sans-serif;
+align-items: normal;
+font-size: 20px;
 }
 
 .square{
