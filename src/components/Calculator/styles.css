@@ -1,0 +1,36 @@
+.calculator-container{
+    clear: both;
+    display: grid;
+    align-items: normal;    
+    top: 30%;
+    left: 41%;
+    
+}
+.calculator-display{
+    background-color: #222222;
+    color: #fff;
+    font-size: 1.714285714em;
+    padding: 0.5em 0.75em;
+    text-align: right;
+    height: 100px;
+    width: 400px;
+    
+}
+.operator{
+    
+    background-color: #4436de;
+    color: #fff;
+    font-size: 1.714285714em;
+    height: 100px;
+    width: 100px;
+    
+}
+.button{
+    background-color: #eaeaea;
+    font-size: 1.714285714em;
+    height: 100px;
+    border: 1px solid blue;
+    width: 100px;
+    
+}
+
