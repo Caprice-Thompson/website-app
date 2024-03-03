@@ -1,33 +1,39 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import TicTacToe from "../../components/tic-tac-toe/tictactoe";
 import Calculator from "../../components/Calculator/Calculator";
 
-// TODO enable single selection- one at a time
-
 const Portfolio = () => {
   const [show, setShow] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [here, setHere] = useState(false);
+  const [button1Enabled, setButton1Enabled] = useState(true);
+  const [button2Enabled, setButton2Enabled] = useState(true);
 
-  function handleSingleSelection(getCurrentId) {
-    setSelected(getCurrentId === selected ? null : getCurrentId);
-  }
+  const handleButton1Click = () => {
+    setShow(!show);
+    setButton2Enabled(!button2Enabled);
+  };
+
+  const handleButton2Click = () => {
+    setHere(!here);
+    setButton1Enabled(!button1Enabled);
+  };
+
   return (
     <>
       <div>
         <h1>Below is a list of Projects</h1>
       </div>
       <div>
-        <button id="1" onClick={() => setShow(!show)}>
+        <button id="1" onClick={handleButton1Click} disabled={!button1Enabled}>
           {show ? "Back to Portfolio" : "Click to Play Tic Tac Toe XO"}
         </button>
         {show ? <TicTacToe /> : null}
       </div>
       <div>
-        <button id="2" onClick={() => setShow(!show)}>
-          {show ? "Back to Portfolio" : "Click to use the Calculator"}
+        <button id="2" onClick={handleButton2Click} disabled={!button2Enabled}>
+          {here ? "Back to Portfolio" : "Click to use the Calculator"}
         </button>
-        {show ? <Calculator /> : null}
+        {here ? <Calculator /> : null}
       </div>
     </>
   );

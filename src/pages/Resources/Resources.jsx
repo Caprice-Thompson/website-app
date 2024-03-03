@@ -1,11 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import Accordian from "../../components/Accordian";
+import React, { useState } from "react";
+import Accordian from "../../components/Accordian/accordian";
 import "./ResourcesStyles.css";
 
 const Resources = () => {
   const [show, setShow] = useState(false);
-  console.log(show);
+
   return (
     <div className="resources">
       <button onClick={() => setShow(!show)}>

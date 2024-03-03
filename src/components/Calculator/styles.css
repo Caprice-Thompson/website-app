@@ -34,3 +34,16 @@
     
 }
 
+.equal{
+    background-color: #18c47c;
+    font-size: 1.714285714em;
+    height: 500px;
+    width: 100px;
+    margin-left: 400px;
+    margin-top: 0px;
+}
+
+.column{
+    align-items: normal;   
+}
+
