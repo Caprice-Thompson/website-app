@@ -1,35 +1,46 @@
-.tic-tac-toe-container{
-    clear: both;
-    display: table;
-    align-items: normal;    
-    position: fixed; /* or absolute */
-    top: 30%;
-    left: 41%;
-
+.tic-tac-toe-container {
+  clear: both;
+  display: table;
+  align-items: normal;
+  position: fixed; /* or absolute */
+  top: 30%;
+  left: 41%;
 }
-.status{
-    position: fixed; /* or absolute */
-    top: 60%;
-    left: 45%;
+.status {
+  position: absolute;
+  align-items: normal;
+  color: aliceblue;
+  font: 3em sans-serif;
+  font-size: 20px;
+  margin-top: 375px;
+  padding: 11;
+}
+.restart button {
+  padding: 0.5em 0.75em;
+  margin-top: 20px;
+  border: 1px solid rgb(2, 58, 28);
+  color: rgb(9, 9, 9);
+  background-color: rgb(206, 242, 206);
 }
 
 h3 {
-color: aliceblue;
-padding: 10px;
-font: 3em sans-serif;
-align-items: normal;
-font-size: 20px;
+  position: static;
+  color: aliceblue;
+  padding: 10px;
+  font: 3em sans-serif;
+  align-items: normal;
+  font-size: 20px;
 }
 
-.square{
-    border: 1px solid blue;
-    float: left;
-    font-size: 40px;
-    height: 100px;
-    padding: 0px;
-    text-align: center;
-    width: 100px;
-    margin-right: -1px;
-    margin-top: -1px;
-    cursor: pointer;
+.square {
+  border: 1px solid blue;
+  float: left;
+  font-size: 40px;
+  height: 100px;
+  padding: 0px;
+  text-align: center;
+  width: 100px;
+  margin-right: -1px;
+  margin-top: -1px;
+  cursor: pointer;
 }

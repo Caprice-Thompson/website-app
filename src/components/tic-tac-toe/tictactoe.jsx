@@ -57,7 +57,7 @@ export default function TicTacToe() {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
       setStatus("This is a draw! Please restart the game");
     } else if (getWinner(squares)) {
-      setStatus(`Winner is ${getWinner(squares)}. Please Restart the game`);
+      setStatus(`Winner is ${getWinner(squares)}.\nPlease Restart the game`);
     } else {
       setStatus(`Next player is ${isXTurn ? "X" : "O"}`);
     }
@@ -82,8 +82,8 @@ export default function TicTacToe() {
           <Square value={squares[7]} onClick={() => handleClick(7)} />
           <Square value={squares[8]} onClick={() => handleClick(8)} />
         </div>
-        <div className="status">
-          <h3>{status}</h3>
+        <div className="status">{status}</div>
+        <div className="restart">
           <button onClick={() => handleRestart()}>Restart Game</button>
         </div>
       </div>
