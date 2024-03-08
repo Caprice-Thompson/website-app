@@ -1,0 +1,76 @@
+/* use flexbox to center the elements  */
+/* body {
+  background-color: rgb(20, 4, 88);
+} */
+.timer-container {
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(136, 249, 211);
+}
+
+.ipt {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ipt input {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* h1 {
+  margin: 50px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(20, 4, 88);
+}
+
+h2 {
+  margin: 50px;
+  font-size: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(20, 4, 88);
+} */
+
+/* #btn-start {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.options {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.timer-container button {
+  margin: 10px 10px;
+  width: 50px;
+  height: 30px;
+  font-size: 10px;
+}
+
+#currentTime {
+  margin: 10px;
+  color: rgb(1, 11, 80);
+}

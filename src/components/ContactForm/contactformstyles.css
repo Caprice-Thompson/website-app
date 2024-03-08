@@ -1,0 +1,93 @@
+/* .firstname,
+.lastname,
+.message,
+.email,
+.subject {
+  display: flex;
+  margin-left: 200px;
+} */
+/* label {
+  font-size: 17px;
+  color: aliceblue;
+  height: 100px;
+  padding: 0px;
+  text-align: center;
+  align-items: center;
+} */
+/* .bodyContainer{
+    background: linear-gradient(to right, #a8caba, #160f53);
+} */
+.form-container {
+  height: 600px;
+  width: 800px;
+  background-color: rgb(190, 240, 223);
+  margin-left: 400px;
+  margin-top: 100px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.textbox textarea {
+  width: 450px;
+  position: relative;
+  margin-left: 100px;
+  margin-top: 180px;
+  display: block;
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+  border-radius: 5px;
+  outline-color: #989898;
+}
+
+.form-row input {
+  margin-top: 150px;
+  width: 300px;
+  height: 35px;
+  position: relative;
+  margin-left: 80px;
+  margin-bottom: 90px;
+  display: block;
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+  border-radius: 5px;
+  outline-color: #989898;
+  /* align-items: center;
+  height: 20px;
+  width: 250px;
+  margin-left: 90px;
+  margin-bottom: 10px; */
+}
+.form-container .form-row {
+  align-items: center;
+  height: 50px;
+  padding: 1em, 1em;
+  display: flex;
+}
+
+.form-container button {
+  padding: 0.6rem 1.3rem;
+  background-color: #ffffff;
+  border: 2px solid #fafafa;
+  font-size: 0.95rem;
+  color: #1abc9c;
+  line-height: 1;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 110px;
+  width: 100%;
+}
+
+.form-container button:hover {
+  background-color: rgb(9, 76, 117);
+  color: #fff;
+}
