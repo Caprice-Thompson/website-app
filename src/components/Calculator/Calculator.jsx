@@ -1,15 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 export default function Calculator() {
   const [displayedKey, setDisplayedKey] = useState(null);
-  // tODO - allow decimal after an operator
+  const previousKey =
+    displayedKey && displayedKey.length > 0
+      ? displayedKey.substring(displayedKey.length - 1)
+      : null;
+  const operators = ["+", "-", "/", "*"];
+
+  const getDigitsAfterOperator = () => {
+    let digitsAfterOperator = "";
+    let operatorFound = false;
+
+    // Iterate through the characters of displayedKey
+    for (let i = 0; i < displayedKey.length; i++) {
+      const char = displayedKey[i];
+
+      // Check if the character is an operator and set operatorFound to true
+      if (operators.includes(char)) {
+        operatorFound = true;
+        continue; // Skip the operator
+      }
+
+      // If an operator has been found, concatenate the digit
+      if (operatorFound) {
+        digitsAfterOperator += char;
+      }
+    }
+    return digitsAfterOperator;
+  };
+
   function handleKeyClick(key) {
     if (key === ".") {
-      if (displayedKey === null || displayedKey.includes(".")) {
+      const after = getDigitsAfterOperator();
+      if (
+        displayedKey.includes(".") &&
+        !operators.some((op) => displayedKey.includes(op))
+      ) {
+        return;
+      }
+
+      if (
+        displayedKey === null ||
+        previousKey.includes(".") ||
+        operators.includes(previousKey) ||
+        after.includes(".")
+      ) {
         // Do nothing if there's already a decimal
         return;
       }
+    }
+    setDisplayedKey((prevNumber) =>
+      prevNumber === null ? key : prevNumber + key
+    );
+  }
+
+  function handleOperatorClick(key) {
+    if (operators.includes(previousKey) || previousKey.includes(".")) {
+      return;
     }
     setDisplayedKey((prevNumber) =>
       prevNumber === null ? key : prevNumber + key
@@ -41,26 +90,19 @@ export default function Calculator() {
     );
   }
 
-  function Display({ value, onClick }) {
-    return (
-      <button onClick={onClick} className="calculator-display">
-        {value}
-      </button>
-    );
-  }
   return (
     <div className="calculator-container">
       <div className="calculator-keys">
-        <Display className="calculator-display" value={displayedKey} />
+        <div className="calculator-display">{displayedKey}</div>
         <div className="column">
           <div className="rowOne">
-            <Operator value={"+"} onClick={() => handleKeyClick("+")} />
-            <Operator value={"-"} onClick={() => handleKeyClick("-")} />
-            <Operator value={"x"} onClick={() => handleKeyClick("*")} />
-            <Operator value={"/"} onClick={() => handleKeyClick("/")} />
+            <Operator value={"+"} onClick={() => handleOperatorClick("+")} />
+            <Operator value={"-"} onClick={() => handleOperatorClick("-")} />
+            <Operator value={"x"} onClick={() => handleOperatorClick("*")} />
+            <Operator value={"/"} onClick={() => handleOperatorClick("/")} />
           </div>
           <div className="rowTwo">
-            <Button value={7} onClick={() => handleKeyClick(7)} />
+            <Button value={7} onClick={() => handleKeyClick("7")} />
             <Button value={8} onClick={() => handleKeyClick("8")} />
             <Button value={9} onClick={() => handleKeyClick("9")} />
             <button value={"="} className="equal" onClick={() => calculate()}>

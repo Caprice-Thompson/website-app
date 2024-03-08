@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TicTacToe from "../../components/tic-tac-toe/tictactoe";
 import Calculator from "../../components/Calculator/Calculator";
+import "./styles.css";
 
 const Portfolio = () => {
   const [show, setShow] = useState(false);
@@ -23,13 +24,13 @@ const Portfolio = () => {
       <div>
         <h1>Below is a list of Projects</h1>
       </div>
-      <div>
+      <div className="btn">
         <button id="1" onClick={handleButton1Click} disabled={!button1Enabled}>
           {show ? "Back to Portfolio" : "Click to Play Tic Tac Toe XO"}
         </button>
         {show ? <TicTacToe /> : null}
       </div>
-      <div>
+      <div className="btn">
         <button id="2" onClick={handleButton2Click} disabled={!button2Enabled}>
           {here ? "Back to Portfolio" : "Click to use the Calculator"}
         </button>
