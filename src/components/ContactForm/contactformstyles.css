@@ -25,6 +25,8 @@
   margin-top: 100px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
 }
 .form-container h1 {
   margin-left: 5px;
@@ -34,7 +36,7 @@
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .textbox textarea {
-  left: 42%;
+  left: 24.5%;
   height: 250px;
   width: 631px;
   position: relative;
@@ -52,14 +54,14 @@
 }
 
 .form-row input {
-  left: 45%;
   margin-top: 150px;
   width: 300px;
   height: 35px;
   position: relative;
   margin-left: 25px;
+  left: 30%;
   margin-bottom: 90px;
-  display: grid;
+  display: flex;
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
@@ -92,12 +94,17 @@
   cursor: pointer;
   transition: 0.3s;
   margin-top: 45px;
-  width: 48%;
+  width: 90%;
   display: grid;
-  margin-left: 47%;
+  margin-left: 34%;
 }
 
 .form-container button:hover {
   background-color: rgb(9, 76, 117);
   color: #fff;
+}
+
+.icon {
+  display: grid;
+  color: rgb(1, 9, 80);
 }
