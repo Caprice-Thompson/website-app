@@ -31,55 +31,57 @@ function ContactForm() {
     <>
       <div className="form-container">
         <h1>Contact Us</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-row">
-            <input
-              type="text"
-              id="firstname"
-              name="firstname"
-              className="firstname"
-              placeholder="First Name"
-              value={formData.firstname}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              placeholder="Last Name"
-              value={formData.lastname}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-row">
-            <input
-              type="subject"
-              id="subject"
-              name="subject"
-              placeholder="Subject"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="textbox">
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Please type your message here..."
-              value={formData.message}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+        <div className="input-container">
+          <form onSubmit={handleSubmit}>
+            <div className="form-row">
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                className="firstname"
+                placeholder="First Name"
+                value={formData.firstname}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                placeholder="Last Name"
+                value={formData.lastname}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-row">
+              <input
+                type="subject"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="textbox">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Please type your message here..."
+                value={formData.message}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </>
   );

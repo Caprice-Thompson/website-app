@@ -1,47 +1,33 @@
-/* .firstname,
-.lastname,
-.message,
-.email,
-.subject {
-  display: flex;
-  margin-left: 200px;
-} */
-/* label {
-  font-size: 17px;
-  color: aliceblue;
-  height: 100px;
-  padding: 0px;
-  text-align: center;
-  align-items: center;
-} */
-/* .bodyContainer{
-    background: linear-gradient(to right, #a8caba, #160f53);
-} */
 .form-container {
+  margin-left: auto;
+  margin-right: auto;
   height: 750px;
   width: 77%;
   background-color: rgb(190, 240, 223);
-  margin-left: 200px;
   margin-top: 100px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
   display: flex;
-  align-items: center;
+}
+
+.input-container {
+  display: flex;
 }
 .form-container h1 {
-  margin-left: 5px;
-  justify-content: left;
+  display: grid;
+  margin-left: 90px;
+  inline-size: 150px;
+  margin-top: 16%;
   font-size: 80px;
   font-family: "Open Sans", "Lucida Sans", "Lucida Sans Regular",
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
 .textbox textarea {
-  left: 24.5%;
+  left: 43.5%;
+  margin-top: 25%;
   height: 250px;
-  width: 631px;
+  width: 91%;
   position: relative;
-  margin-left: 65px;
-  margin-top: 55px;
   display: grid;
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
@@ -54,14 +40,14 @@
 }
 
 .form-row input {
-  margin-top: 150px;
+  margin-top: 160px;
   width: 300px;
   height: 35px;
   position: relative;
-  margin-left: 25px;
-  left: 30%;
-  margin-bottom: 90px;
-  display: flex;
+  bottom: 10px;
+  margin-left: 64px;
+  left: 35%;
+  display: grid;
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
@@ -70,16 +56,11 @@
   box-shadow: none;
   border-radius: 5px;
   outline-color: #989898;
-  /* align-items: center;
-  height: 20px;
-  width: 250px;
-  margin-left: 90px;
-  margin-bottom: 10px; */
 }
 .form-container .form-row {
-  align-items: center;
   height: 50px;
   display: flex;
+  margin-bottom: 15px;
 }
 
 .form-container button {
@@ -94,13 +75,13 @@
   cursor: pointer;
   transition: 0.3s;
   margin-top: 45px;
-  width: 90%;
+  width: 92%;
   display: grid;
-  margin-left: 34%;
+  margin-left: 43.5%;
 }
 
 .form-container button:hover {
-  background-color: rgb(9, 76, 117);
+  background-color: rgb(12, 39, 150);
   color: #fff;
 }
 
