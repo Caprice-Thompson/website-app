@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import "./contactformstyles.css";
+import Modal from "../../components/Modal/Modal";
+import "./ContactForm.css";
 
 // controlled components
 //TODO:Add validation
 function ContactForm() {
+  const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -22,9 +24,11 @@ function ContactForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(
-      `First Name: ${formData.firstname}, Last Name: ${formData.lastname}, Email: ${formData.email}, Message: ${formData.message}`
-    );
+    setShow(!show);
+
+    // alert(
+    //   `First Name: ${formData.firstname}, Last Name: ${formData.lastname}, Email: ${formData.email}, Message: ${formData.message}`
+    // );
   };
 
   return (
@@ -32,7 +36,7 @@ function ContactForm() {
       <div className="form-container">
         <h1>Contact Us</h1>
         <div className="input-container">
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="form-row">
               <input
                 type="text"
@@ -79,7 +83,12 @@ function ContactForm() {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+            <Modal title="Success" onClose={() => setShow(false)} show={show}>
+              Your details have been submitted!
+            </Modal>
           </form>
         </div>
       </div>
