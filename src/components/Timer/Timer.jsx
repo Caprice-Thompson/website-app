@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaPlay, FaPause, FaStop } from "react-icons/fa";
 import { MdClear } from "react-icons/md";
-import "./timerstyles.css";
+import "./Timer.css";
 
 export default function TimerApp() {
   const [timer, setTimer] = useState(null);

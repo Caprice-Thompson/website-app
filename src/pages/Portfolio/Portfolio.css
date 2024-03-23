@@ -1,0 +1,21 @@
+.portfolio-container {
+  padding: 0.6rem 1.3rem;
+  border: 3px solid #fafafa;
+  flex-direction: row;
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-right: 70px;
+  height: 300px;
+  width: 300px;
+  background-color: rgb(253, 253, 253);
+  display: inline-block;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  background-color: rgb(253, 253, 253);
+}
+
+
