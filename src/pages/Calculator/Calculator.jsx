@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { MdArrowBack } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import BackButton from "../../components/Button/Button.jsx";
 
 export default function Calculator() {
   const [displayedKey, setDisplayedKey] = useState(null);
-  const navigate = useNavigate();
   const previousKey =
     displayedKey && displayedKey.length > 0
       ? displayedKey.substring(displayedKey.length - 1)
@@ -72,10 +70,6 @@ export default function Calculator() {
     setDisplayedKey(null);
   }
 
-  const handleBackBtn = () => {
-    navigate("/portfolio");
-  };
-
   function calculate() {
     const result = eval(displayedKey);
     setDisplayedKey(result.toString());
@@ -99,12 +93,7 @@ export default function Calculator() {
 
   return (
     <>
-      <div className="back-btn">
-        <button onClick={() => handleBackBtn()}>
-          <MdArrowBack />
-          Back
-        </button>
-      </div>
+      <BackButton />
       <div className="calculator-container">
         <div className="calculator-keys">
           <div className="calculator-display">{displayedKey}</div>

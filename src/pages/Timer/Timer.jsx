@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaPlay, FaPause, FaStop } from "react-icons/fa";
-import { MdClear, MdArrowBack } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button.jsx";
 import "./Timer.css";
 
 export default function TimerApp() {
@@ -10,7 +8,6 @@ export default function TimerApp() {
   const [minutes, setMinutes] = useState("");
   const [hours, setHours] = useState("");
   const [timeRemaining, setTimeRemaining] = useState("");
-  const navigate = useNavigate();
 
   // TODO: countdown meter next to time remaining
   useEffect(() => {
@@ -118,18 +115,9 @@ export default function TimerApp() {
     setTimeRemaining("");
   };
 
-  const handleBackBtn = () => {
-    navigate("/portfolio");
-  };
-
   return (
     <>
-      <div className="back-btn">
-        <button onClick={() => handleBackBtn()}>
-          <MdArrowBack />
-          Back
-        </button>
-      </div>
+      <Button />
       <div className="timer-container">
         <h3>Please enter a time</h3>
         <div class="ipt">
@@ -158,27 +146,15 @@ export default function TimerApp() {
         </div>
         <div className="btn">
           <button id="btn-start" onClick={startCounting}>
-            <span class="icon">
-              <FaPlay />
-            </span>
             <span class="text">Start</span>
           </button>
           <button id="btn-pause" onClick={pauseCounting}>
-            <span class="icon">
-              <FaPause />
-            </span>
             <span class="text">Pause</span>
           </button>
           <button id="btn-stop" onClick={endCounting}>
-            <span class="icon">
-              <FaStop />
-            </span>
             <span class="text">Stop</span>
           </button>
           <button id="btn-clear" onClick={clearCounting}>
-            <span class="icon">
-              <MdClear />
-            </span>
             <span class="text">Clear</span>
           </button>
         </div>

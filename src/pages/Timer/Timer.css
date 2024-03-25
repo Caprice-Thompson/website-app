@@ -3,33 +3,32 @@
   background-color: rgb(20, 4, 88);
 } */
 .timer-container {
+  margin-top: 150px;
+  left: 250px;
   width: 500px;
   height: 400px;
-  margin-left: 60ch;
+  margin-left: 35%;
   justify-content: center;
   align-items: center;
-  background-color: rgb(136, 249, 211);
-  border-radius: 10px;
+  background-color: rgb(186, 244, 225);
+  border-radius: 40px;
   display: grid;
   grid-gap: 48px;
   padding: 20px;
 }
 
 .popular-timer-container {
-  background-color: rgb(136, 249, 211);
-  border-radius: 10px;
+  background-color: rgb(181, 247, 225);
+  margin-top: 40px;
+  border-radius: 30px;
   padding: 20px;
   display: grid;
   width: 300px;
 }
 
 .timer-container #btn-start {
-  padding: 2px;
+  padding: 2px 2px;
   justify-content: center;
-}
-
-.icon {
-  margin-right: 15px;
 }
 
 .popular-timer-container h2 {
@@ -42,6 +41,7 @@
   height: 50px;
   font-size: 20px;
   text-align: center;
+  border-radius: 10px;
 }
 
 .timer-container h3 {
@@ -59,7 +59,7 @@
   width: 50px;
   height: 30px;
   font-size: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 #currentTime {
@@ -68,6 +68,6 @@
 }
 
 .timer-container button:hover {
-  background-color: rgb(9, 76, 117);
+  background-color: rgb(14, 22, 20);
   color: #fff;
 }

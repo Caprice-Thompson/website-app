@@ -1,9 +1,7 @@
 import React from "react";
 import Button from "../../components/Button/Button";
-import { useNavigate } from "react-router-dom";
 
 const About = () => {
-  const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/portfolio/tic-tac-toe");
