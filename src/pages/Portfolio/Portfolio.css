@@ -2,13 +2,34 @@
   padding: 0.6rem 1.3rem;
   border: 3px solid #fafafa;
   flex-direction: row;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-left: 100px;
   margin-right: 70px;
   height: 300px;
   width: 300px;
   background-color: rgb(253, 253, 253);
   display: inline-block;
+  border-radius: 15px;
+}
+
+.portfolio-container #tic-tac-toe-nav,
+#calculator-nav,
+#timer-nav {
+  background-color: #ffffff;
+  border: 2px solid #132a7e;
+  font-size: 0.95rem;
+  color: #1abc9c;
+  line-height: 2;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.portfolio-container #tic-tac-toe-nav:hover,
+#calculator-nav:hover,
+#timer-nav:hover {
+  background-color: #e5e5f6;
 }
 
 img {
@@ -18,4 +39,17 @@ img {
   background-color: rgb(253, 253, 253);
 }
 
+.project-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 
+.project-overlay.show {
+  display: block;
+}

@@ -7,7 +7,7 @@
   left: 41%;
 }
 .status {
-  position: absolute;
+  position: fixed;
   align-items: normal;
   color: aliceblue;
   font: 3em sans-serif;
@@ -16,11 +16,17 @@
   padding: 11;
 }
 .restart button {
+  cursor: pointer;
   padding: 0.5em 0.75em;
   margin-top: 20px;
   border: 1px solid rgb(2, 58, 28);
   color: rgb(9, 9, 9);
   background-color: rgb(206, 242, 206);
+  border-radius: 5px;
+}
+
+.restart button:hover {
+  background-color: rgb(120, 133, 120);
 }
 
 h3 {
@@ -42,5 +48,14 @@ h3 {
   width: 100px;
   margin-right: -1px;
   margin-top: -1px;
+  cursor: pointer;
+}
+
+.back-btn {
+  border: 1px solid blue;
+  float: left;
+  margin-top: 50px;
+  margin-left: 100px;
+  padding: 10px 10px;
   cursor: pointer;
 }

@@ -1,7 +1,7 @@
 .calculator-container {
-  top: 30%;
-  left: 41%;
+  margin-top: 120px;
 }
+
 .calculator-display {
   background-color: #222222;
   color: #fff;

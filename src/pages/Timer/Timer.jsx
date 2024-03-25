@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaPlay, FaPause, FaStop } from "react-icons/fa";
-import { MdClear } from "react-icons/md";
+import { MdClear, MdArrowBack } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import "./Timer.css";
 
 export default function TimerApp() {
@@ -9,6 +10,8 @@ export default function TimerApp() {
   const [minutes, setMinutes] = useState("");
   const [hours, setHours] = useState("");
   const [timeRemaining, setTimeRemaining] = useState("");
+  const navigate = useNavigate();
+
   // TODO: countdown meter next to time remaining
   useEffect(() => {
     if (timer === null) return;
@@ -115,8 +118,18 @@ export default function TimerApp() {
     setTimeRemaining("");
   };
 
+  const handleBackBtn = () => {
+    navigate("/portfolio");
+  };
+
   return (
     <>
+      <div className="back-btn">
+        <button onClick={() => handleBackBtn()}>
+          <MdArrowBack />
+          Back
+        </button>
+      </div>
       <div className="timer-container">
         <h3>Please enter a time</h3>
         <div class="ipt">

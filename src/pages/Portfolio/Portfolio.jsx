@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import TicTacToe from "../../components/tic-tac-toe/tictactoe";
-import Calculator from "../../components/Calculator/Calculator";
+import TicTacToe from "../../pages/TicTacToe/TicTacToe";
+import Calculator from "../../pages/Calculator/Calculator";
 import "./Portfolio.css";
-import TimerApp from "../../components/Timer/Timer";
+import TimerApp from "../../pages/Timer/Timer";
 import noughts_crosses from "../../../src/images/noughts_crosses.jpg";
 import calculator from "../../../src/images/calculator.png";
 import timer from "../../../src/images/timer.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
   const [show, setShow] = useState(false);
@@ -14,17 +15,20 @@ const Portfolio = () => {
   const [button1Enabled, setButton1Enabled] = useState(true);
   const [button2Enabled, setButton2Enabled] = useState(true);
   const [button3Enabled, setButton3Enabled] = useState(true);
+  const navigate = useNavigate();
 
   const handleButton1Click = () => {
     setShow(!show);
     setButton2Enabled(!button2Enabled);
     setButton3Enabled(!button3Enabled);
+    navigate("/portfolio/tic-tac-toe");
   };
 
   const handleButton2Click = () => {
     setHere(!here);
     setButton1Enabled(!button1Enabled);
     setButton3Enabled(!button3Enabled);
+    navigate("/portfolio/calculator");
   };
 
   const handleButton3Click = () => {
@@ -32,6 +36,7 @@ const Portfolio = () => {
     setButton3Enabled(button3Enabled);
     setButton1Enabled(!button1Enabled);
     setButton2Enabled(!button2Enabled);
+    navigate("/portfolio/timer");
   };
 
   return (
@@ -43,7 +48,7 @@ const Portfolio = () => {
         <img src={noughts_crosses} alt="noughts logo" />
         <div className="btn">
           <button
-            id="1"
+            id="tic-tac-toe-nav"
             onClick={handleButton1Click}
             disabled={!button1Enabled}
           >
@@ -56,7 +61,7 @@ const Portfolio = () => {
         <div className="btn">
           <img src={calculator} alt="calculator logo" />
           <button
-            id="2"
+            id="calculator-nav"
             onClick={handleButton2Click}
             disabled={!button2Enabled}
           >
@@ -69,7 +74,7 @@ const Portfolio = () => {
         <div className="btn">
           <img src={timer} alt="timer logo" />
           <button
-            id="3"
+            id="timer-nav"
             onClick={handleButton3Click}
             disabled={!button3Enabled}
           >

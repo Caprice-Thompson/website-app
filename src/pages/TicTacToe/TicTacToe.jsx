@@ -1,5 +1,7 @@
-import "./styles.css";
+import { useNavigate } from "react-router-dom";
+import "./TicTacToe.css";
 import { useEffect, useState } from "react";
+import { MdArrowBack } from "react-icons/md";
 
 function Square({ value, onClick }) {
   return (
@@ -16,6 +18,7 @@ export default function TicTacToe() {
   const [squares, setSquares] = useState(Array(9).fill(""));
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   function getWinner(squares) {
     const winningPatterns = [
@@ -52,6 +55,9 @@ export default function TicTacToe() {
     setIsXTurn(true);
     setSquares(Array(9).fill(""));
   }
+  const handleBackBtn = () => {
+    navigate("/portfolio");
+  };
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
@@ -64,6 +70,12 @@ export default function TicTacToe() {
   }, [squares, isXTurn]);
   return (
     <>
+      <div className="back-btn">
+        <button onClick={() => handleBackBtn()}>
+          <MdArrowBack />
+          Back
+        </button>
+      </div>
       <div className="tic-tac-toe-container">
         <div className="row">
           <Square value={squares[0]} onClick={() => handleClick(0)} />
