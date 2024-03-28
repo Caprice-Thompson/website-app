@@ -5,8 +5,6 @@
   border: 2px solid rgb(25, 49, 230);
   color: rgb(2, 26, 47);
   background-color: aliceblue;
-  margin-left: 36%;
-  margin-top: 15%;
   border-radius: 15px;
   transition: all 0.25s ease;
   opacity: 0;
@@ -14,6 +12,9 @@
   text-align: center;
   transform: translateY(0);
   z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-overlay.show {

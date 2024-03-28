@@ -8,8 +8,14 @@ export default function TimerApp() {
   const [minutes, setMinutes] = useState("");
   const [hours, setHours] = useState("");
   const [timeRemaining, setTimeRemaining] = useState("");
-  const [value, setValue] = useState("");
-
+  const [disabled, setDisabled] = useState(false);
+  const [startButton, setStartButton] = useState(true);
+  const [clearButton, setClearButton] = useState(true);
+  const [stopButton, setStopButton] = useState(true);
+  const [pauseButton, setPauseButton] = useState(true);
+  const [showResumeBtn, setShowResumeBtn] = useState(false);
+  const [state, setState] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   // TODO: countdown meter next to time remaining
   useEffect(() => {
     if (timer === null) return;
@@ -52,35 +58,48 @@ export default function TimerApp() {
   }, [timer, seconds, minutes, hours]);
 
   const handleSeconds = (event) => {
-    setSeconds(event.target.value);
+    const expectedValue = event.target.value;
+    if (/^\d*$/.test(expectedValue)) {
+      // If the input value has more than two digits, only take the last two digits
+      const newValue = expectedValue.slice(-2);
+      setSeconds(newValue);
+    }
   };
 
   const handleMinutes = (event) => {
-    setMinutes(event.target.value);
+    const expectedValue = event.target.value;
+    if (/^\d*$/.test(expectedValue)) {
+      const newValue = expectedValue.slice(-2);
+      setMinutes(newValue);
+    }
   };
 
   const handleHours = (event) => {
-    setHours(event.target.value);
+    const expectedValue = event.target.value;
+    // setHours(event.target.value);
+    if (/^\d*$/.test(expectedValue)) {
+      const newValue = expectedValue.slice(-2);
+      setHours(newValue);
+    }
   };
 
   const handleBlur = () => {
-    // If the input is empty or doesn't start with 0, prepend '0'
-    if (hours[0] !== "0") {
-      if (!hours) {
-        setHours("00");
-      }
+    const parsedHours = parseInt(hours, 10);
+    const parsedMinutes = parseInt(minutes, 10);
+    const parsedSeconds = parseInt(seconds, 10);
+    console.log(hours);
+    if (parsedHours <= 9 && hours.length === 1) {
       setHours("0" + hours);
     }
-    if (minutes[0] !== "0") {
+    if (parsedMinutes <= 9 && minutes.length === 1) {
       setMinutes("0" + minutes);
     }
-    if (seconds[0] !== "0") {
+    if (parsedSeconds <= 9 && seconds.length === 1) {
       setSeconds("0" + seconds);
     }
   };
 
   const startCounting = () => {
-    clearInterval(timer);
     // check for invalid inputs
     if (
       hours < 0 ||
@@ -88,21 +107,22 @@ export default function TimerApp() {
       seconds < 0 ||
       hours > 59 ||
       minutes > 59 ||
-      seconds > 59
+      seconds > 59 ||
+      hours === "" ||
+      minutes === "" ||
+      seconds === ""
     ) {
       // TODO: turn into popup modal
       alert("The time entered is not valid!");
+
       return;
     }
-    if (hours === "") {
-      setHours("00".toString().padStart(2, "0"));
-    }
-    if (minutes === "") {
-      setMinutes("00".toString().padStart(2, "0"));
-    }
-    if (seconds === "") {
-      setSeconds("00".toString().padStart(2, "0"));
-    }
+    setStartButton(false);
+    setClearButton(true);
+    setDisabled(true);
+    setStopButton(true);
+    setPauseButton(true);
+    clearInterval(timer);
 
     const totalSeconds =
       parseInt(hours) * 3600 + parseInt(minutes) * 60 + parseInt(seconds);
@@ -116,7 +136,11 @@ export default function TimerApp() {
   };
 
   const countDownOptions = (h, m, s) => {
+    setDisabled(true);
     clearInterval(timer);
+    setTimer(null);
+    setStartButton(true);
+    setClearButton(true);
     const hours = h.toString().padStart(2, "0");
     const minutes = m.toString().padStart(2, "0");
     const seconds = s.toString().padStart(2, "0");
@@ -127,17 +151,28 @@ export default function TimerApp() {
   };
   // TODO: get rid of either stop or pause
   const pauseCounting = () => {
+    setStartButton(true);
+    setClearButton(true);
+    setPauseButton(false);
     clearInterval(timer);
     setTimer(null);
   };
 
   const endCounting = () => {
+    setStopButton(false);
+    setStartButton(true);
+    setClearButton(true);
+    setPauseButton(false);
     clearInterval(timer);
     setTimer(null);
+
     setTimeRemaining(`${hours}:${minutes}:${seconds}`);
   };
 
   const clearCounting = () => {
+    setStartButton(true);
+    setClearButton(clearButton);
+    setDisabled(false);
     setSeconds("");
     setMinutes("");
     setHours("");
@@ -159,6 +194,9 @@ export default function TimerApp() {
             onChange={handleHours}
             placeholder="hour"
             onBlur={handleBlur}
+            disabled={disabled}
+
+            // error={this.state.number > 12 ? "Enter a number less than 12" : ""}
           />
 
           <input
@@ -168,6 +206,7 @@ export default function TimerApp() {
             onChange={handleMinutes}
             placeholder="minute"
             onBlur={handleBlur}
+            disabled={disabled}
           />
           <input
             id="seconds"
@@ -176,19 +215,32 @@ export default function TimerApp() {
             onChange={handleSeconds}
             placeholder="second"
             onBlur={handleBlur}
+            disabled={disabled}
           />
         </div>
         <div className="btn">
-          <button id="btn-start" onClick={startCounting}>
+          <button
+            id="btn-start"
+            onClick={startCounting}
+            disabled={!startButton}
+          >
             <span class="text">Start</span>
           </button>
-          <button id="btn-pause" onClick={pauseCounting}>
+          <button
+            id="btn-pause"
+            onClick={pauseCounting}
+            disabled={!pauseButton}
+          >
             <span class="text">Pause</span>
           </button>
-          <button id="btn-stop" onClick={endCounting}>
+          <button id="btn-stop" onClick={endCounting} disabled={!stopButton}>
             <span class="text">Stop</span>
           </button>
-          <button id="btn-clear" onClick={clearCounting}>
+          <button
+            id="btn-clear"
+            onClick={clearCounting}
+            disabled={!clearButton}
+          >
             <span class="text">Clear</span>
           </button>
         </div>

@@ -24,13 +24,14 @@ function ContactForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShow(!show);
 
+    console.log("here");
+    setShow(true);
     // alert(
     //   `First Name: ${formData.firstname}, Last Name: ${formData.lastname}, Email: ${formData.email}, Message: ${formData.message}`
     // );
   };
-
+  console.log(show);
   return (
     <>
       <div className="form-container">
@@ -89,6 +90,7 @@ function ContactForm() {
             <Modal title="Success" onClose={() => setShow(false)} show={show}>
               Your details have been submitted!
             </Modal>
+            {/* <Modal title="Success" onClose={() => setShow(false)} show={show} /> */}
           </form>
         </div>
       </div>
