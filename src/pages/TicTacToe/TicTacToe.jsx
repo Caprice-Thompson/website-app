@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import "./TicTacToe.css";
 import { useEffect, useState } from "react";
 import Button from "../../components/Button/Button.jsx";
@@ -18,7 +17,17 @@ export default function TicTacToe() {
   const [squares, setSquares] = useState(Array(9).fill(""));
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
-  const navigate = useNavigate();
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    if (!getWinner(squares) && squares.every((item) => item !== "")) {
+      setStatus("This is a draw! Please restart the game");
+    } else if (getWinner(squares)) {
+      setStatus(`Winner is ${getWinner(squares)}.\nPlease Restart the game`);
+    } else {
+      setStatus(`Next player is ${isXTurn ? "X" : "O"}`);
+    }
+  }, [squares, isXTurn]);
 
   function getWinner(squares) {
     const winningPatterns = [
@@ -43,6 +52,7 @@ export default function TicTacToe() {
     }
     return null;
   }
+
   function handleClick(getCurrentSquare) {
     let cpySquares = [...squares];
     if (getWinner(cpySquares) || cpySquares[getCurrentSquare]) return;
@@ -56,18 +66,28 @@ export default function TicTacToe() {
     setSquares(Array(9).fill(""));
   }
 
-  useEffect(() => {
-    if (!getWinner(squares) && squares.every((item) => item !== "")) {
-      setStatus("This is a draw! Please restart the game");
-    } else if (getWinner(squares)) {
-      setStatus(`Winner is ${getWinner(squares)}.\nPlease Restart the game`);
-    } else {
-      setStatus(`Next player is ${isXTurn ? "X" : "O"}`);
-    }
-  }, [squares, isXTurn]);
+  function handleChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleNameClick() {
+    // setName("lll");
+    console.log(name);
+    setName("");
+  }
+
   return (
     <>
       <Button />
+      <div className="name-input">
+        <p>Player One Please Enter Name:</p>
+        <input onChange={handleChange} />
+        <button onClick={() => handleNameClick()}>Add</button>
+      </div>
+      <div className="leader-board">
+        <h3>Leader Board</h3>
+        {name}
+      </div>
       <div className="tic-tac-toe-container">
         <div className="row">
           <Square value={squares[0]} onClick={() => handleClick(0)} />

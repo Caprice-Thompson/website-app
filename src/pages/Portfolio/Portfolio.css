@@ -12,13 +12,16 @@
   border-radius: 15px;
 }
 
+/* .portfolio-container:hover {
+  make image clickable
+} */
+
 .portfolio-container #tic-tac-toe-nav,
 #calculator-nav,
 #timer-nav {
   background-color: #ffffff;
-  border: 2px solid #132a7e;
   font-size: 0.95rem;
-  color: #1abc9c;
+  color: #101313;
   line-height: 2;
   border-radius: 8px;
   margin-top: 20px;
@@ -29,14 +32,13 @@
 .portfolio-container #tic-tac-toe-nav:hover,
 #calculator-nav:hover,
 #timer-nav:hover {
-  background-color: #e5e5f6;
+  background-color: #dadada;
 }
 
 img {
   height: 200px;
   width: 200px;
   padding: 10px;
-  background-color: rgb(253, 253, 253);
 }
 
 .project-overlay {

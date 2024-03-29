@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import TicTacToe from "../../pages/TicTacToe/TicTacToe";
 import Calculator from "../../pages/Calculator/Calculator";
+import ToDoList from "../ToDoList/ToDoList";
 import "./Portfolio.css";
 import TimerApp from "../../pages/Timer/Timer";
 import noughts_crosses from "../../../src/images/noughts_crosses.jpg";
 import calculator from "../../../src/images/calculator.png";
 import timer from "../../../src/images/timer.jpg";
+import todo from "../../images/todo.png";
 import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
@@ -37,6 +39,14 @@ const Portfolio = () => {
     setButton1Enabled(!button1Enabled);
     setButton2Enabled(!button2Enabled);
     navigate("/portfolio/timer");
+  };
+
+  const handleButton4Click = () => {
+    setHere2(!here2);
+    setButton3Enabled(button3Enabled);
+    setButton1Enabled(!button1Enabled);
+    setButton2Enabled(!button2Enabled);
+    navigate("/portfolio/todo-list");
   };
 
   return (
@@ -81,6 +91,19 @@ const Portfolio = () => {
             {here2 ? "Back to Portfolio" : "Click to use the Timer App"}
           </button>
           {here2 ? <TimerApp /> : null}
+        </div>
+      </div>
+      <div className="portfolio-container">
+        <div className="btn">
+          <img src={todo} alt="todo list" />
+          <button
+            id="timer-nav"
+            onClick={handleButton4Click}
+            disabled={!button3Enabled}
+          >
+            {here2 ? "Back to Portfolio" : "Click to use the Todo list"}
+          </button>
+          {here2 ? <ToDoList /> : null}
         </div>
       </div>
     </>

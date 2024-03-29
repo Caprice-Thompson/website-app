@@ -73,3 +73,12 @@ h3 {
   cursor: pointer;
   color: rgb(7, 2, 67);
 }
+
+.name-input p {
+  color: aliceblue;
+}
+
+.leader-board {
+  color: aliceblue;
+  border: 1px solid blue;
+}

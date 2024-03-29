@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
 import "./Button.css";
 
-export default function Button() {
+export default function BackButton() {
   const navigate = useNavigate();
   const handleBackBtn = () => {
     navigate("/portfolio");

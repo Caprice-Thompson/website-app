@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "../../components/Button/Button.jsx";
+import BackButton from "../../components/Button/Button.jsx";
 import "./Timer.css";
 
 export default function TimerApp() {
@@ -183,7 +183,7 @@ export default function TimerApp() {
 
   return (
     <>
-      <Button />
+      <BackButton />
       <div className="timer-container">
         <h3>Please enter a time</h3>
         <div class="ipt">

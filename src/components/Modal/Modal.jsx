@@ -13,7 +13,7 @@ export default function Modal(props) {
         onClick={props.onClose}
       />
       <div className={`modal ${props.show ? "show" : ""}`}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-content">
           <div className="modal-header">
             <h2>{props.title}</h2>
           </div>
