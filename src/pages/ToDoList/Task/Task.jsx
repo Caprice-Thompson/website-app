@@ -6,7 +6,7 @@ import Checkbox from "../../../components/Checkbox/Checkbox";
 export default function Task(props) {
   return (
     <div className="task-container">
-      <div className={"task" + (props.completed ? "completed" : "")}>
+      <div className={"task" + (props.completed ? " completed" : "")}>
         <label>{props.priority}</label>
         <p>{props.taskDescription}</p>
         <div className="task-icons">
