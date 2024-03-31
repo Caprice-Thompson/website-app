@@ -1,0 +1,64 @@
+.task {
+  position: relative;
+  display: grid;
+  margin-left: 30%;
+  background-color: rgb(201, 225, 244);
+  height: 90px;
+  border-radius: 15px;
+  width: 40%;
+  color: black;
+  margin-top: 10px;
+}
+
+.task.completed {
+  background-color: rgb(22, 133, 51);
+}
+
+.task-container #complete-checkbox {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  height: 24px;
+  width: 24px;
+  border: 2px solid #aaa;
+  border-radius: 15px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.task-container h3 {
+  color: black;
+  display: grid;
+  position: absolute;
+  left: 200px;
+  bottom: 4px;
+}
+.task-icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 10px;
+  font-size: x-large;
+}
+
+.task-icons > * {
+  cursor: pointer;
+}
+
+.task-icons > *:hover {
+  color: #777;
+}
+
+.task-container label {
+  color: #030303;
+  background-color: rgb(148, 153, 252);
+  display: inline-block;
+  border-radius: 90px;
+  height: 25px;
+  position: relative;
+  width: 30px;
+  padding-top: 3px;
+  margin: 10px 10px 10px 578px;
+}

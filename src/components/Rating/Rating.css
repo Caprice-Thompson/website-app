@@ -1,8 +1,9 @@
-  .star-rating .active {
-    color: yellow;
-  }
-  
-  .star-rating .inactive {
-    color: rgb(41, 100, 216);
-  }
-  
+.star-rating .active {
+  color: yellow;
+  cursor: pointer;
+}
+
+.star-rating .inactive {
+  color: rgb(41, 100, 216);
+  cursor: pointer;
+}

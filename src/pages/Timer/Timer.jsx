@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BackButton from "../../components/Button/Button.jsx";
 import "./Timer.css";
 import TimerOptions from "./TimerOptions.jsx";
-import Input from "../../components/Input/Input.jsx";
+import NumericInput from "../../components/Input/NumericInput.jsx";
 
 export default function TimerApp() {
   const [timer, setTimer] = useState(null);
@@ -186,7 +186,7 @@ export default function TimerApp() {
       <div className="timer-container">
         <h3>Please enter a time</h3>
         <div className="ipt">
-          <Input
+          <NumericInput
             id={"hours"}
             type={"number"}
             value={hours}
@@ -195,7 +195,7 @@ export default function TimerApp() {
             handleBlur={handleBlur}
             disabled={disabled}
           />
-          <Input
+          <NumericInput
             id={"minutes"}
             type={"number"}
             value={minutes}
@@ -204,7 +204,7 @@ export default function TimerApp() {
             handleBlur={handleBlur}
             disabled={disabled}
           />
-          <Input
+          <NumericInput
             id={"seconds"}
             type={"number"}
             value={seconds}

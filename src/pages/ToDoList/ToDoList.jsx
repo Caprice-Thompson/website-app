@@ -1,6 +1,6 @@
 import "./ToDoList.css";
 import React, { useState } from "react";
-import Task from "./Task";
+import Task from "./Task/Task";
 import BackButton from "../../components/Button/Button.jsx";
 import Dropdown from "../../components/Dropdown";
 
@@ -8,20 +8,37 @@ export default function ToDoList() {
   const [todoList, setTodoList] = useState([]);
   const [newTask, setNewTask] = useState("");
   const [newTaskDescription, setNewTaskDescription] = useState("");
-  // when you have a list and you want to display each element in a list as a ui element, .map will iterate through each element
+  const [dropdownValue, setDropdownValue] = useState("P1");
+  const [taskCount, setTaskCount] = useState(0);
+  const [inputValue, setInputValue] = useState("");
+
   const handleTaskTitleChange = (event) => {
     setNewTask(event.target.value);
   };
 
+  function handleCheckbox(e) {
+    setChecked(e.target.checked);
+  }
+
   const handleTaskDescriptionChange = (event) => {
     setNewTaskDescription(event.target.value);
   };
+
+  const updateInputValue = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handlePriority = (event) => {
+    setDropdownValue(event.target.value);
+  };
   // each task to have an object - id and taskname, to differentiate them
   const addTask = () => {
+    setTaskCount(taskCount + 1);
     const task = {
       id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
       taskName: newTask,
       taskDescription: newTaskDescription,
+      priority: dropdownValue,
       completed: false,
     };
     setTodoList([...todoList, task]);
@@ -29,6 +46,7 @@ export default function ToDoList() {
   };
   // if task is = to task name rtn false
   const deleteTask = (id) => {
+    setTaskCount(taskCount - 1);
     const newTodoList = todoList.filter((task) => {
       // simplify: return task !== taskName
       // task !== taskName
@@ -40,6 +58,8 @@ export default function ToDoList() {
     });
     setTodoList(newTodoList);
   };
+
+  const editTask = () => {};
 
   const completeTask = (id) => {
     setTodoList(
@@ -65,23 +85,25 @@ export default function ToDoList() {
             placeholder="Add task title..."
           />
           <div className="addTask">
-            <input
+            {/* <input
               onChange={handleTaskDescriptionChange}
               placeholder="Add task description here..."
-            />
-            <Dropdown
-              priority={"Priority:"}
-              option={"P1"}
-              option2={"P2"}
-              option3={"P3"}
-              option4={"P4"}
-            />
+            /> */}
+            <div className="selection">
+              <Dropdown
+                option={"P1"}
+                option2={"P2"}
+                option3={"P3"}
+                option4={"P4"}
+                handleDropdown={handlePriority}
+              />
+            </div>
             <button onClick={addTask}>Add Task</button>
           </div>
         </div>
       </div>
       <div className="list">
-        <h1>Task List</h1>
+        <h1>Task List ({taskCount})</h1>
         {todoList.map((task) => {
           return (
             <Task
@@ -89,8 +111,10 @@ export default function ToDoList() {
               id={task.id}
               taskDescription={task.taskDescription}
               completed={task.completed}
+              priority={task.priority}
               deleteTask={deleteTask}
               completeTask={completeTask}
+              editTask={editTask}
             />
           );
         })}
