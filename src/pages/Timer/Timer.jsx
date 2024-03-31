@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import BackButton from "../../components/Button/Button.jsx";
 import "./Timer.css";
+import TimerOptions from "./TimerOptions.jsx";
+import Input from "../../components/Input/Input.jsx";
 
 export default function TimerApp() {
   const [timer, setTimer] = useState(null);
@@ -13,9 +15,7 @@ export default function TimerApp() {
   const [clearButton, setClearButton] = useState(true);
   const [stopButton, setStopButton] = useState(true);
   const [pauseButton, setPauseButton] = useState(true);
-  const [showResumeBtn, setShowResumeBtn] = useState(false);
-  const [state, setState] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+
   // TODO: countdown meter next to time remaining
   useEffect(() => {
     if (timer === null) return;
@@ -76,7 +76,6 @@ export default function TimerApp() {
 
   const handleHours = (event) => {
     const expectedValue = event.target.value;
-    // setHours(event.target.value);
     if (/^\d*$/.test(expectedValue)) {
       const newValue = expectedValue.slice(-2);
       setHours(newValue);
@@ -186,35 +185,32 @@ export default function TimerApp() {
       <BackButton />
       <div className="timer-container">
         <h3>Please enter a time</h3>
-        <div class="ipt">
-          <input
-            id="hours"
-            type="number"
+        <div className="ipt">
+          <Input
+            id={"hours"}
+            type={"number"}
             value={hours}
-            onChange={handleHours}
-            placeholder="hour"
-            onBlur={handleBlur}
+            handleTime={handleHours}
+            placeholder={"hour"}
+            handleBlur={handleBlur}
             disabled={disabled}
-
-            // error={this.state.number > 12 ? "Enter a number less than 12" : ""}
           />
-
-          <input
-            id="minutes"
-            type="number"
+          <Input
+            id={"minutes"}
+            type={"number"}
             value={minutes}
-            onChange={handleMinutes}
-            placeholder="minute"
-            onBlur={handleBlur}
+            handleTime={handleMinutes}
+            placeholder={"minute"}
+            handleBlur={handleBlur}
             disabled={disabled}
           />
-          <input
-            id="seconds"
-            type="number"
+          <Input
+            id={"seconds"}
+            type={"number"}
             value={seconds}
-            onChange={handleSeconds}
-            placeholder="second"
-            onBlur={handleBlur}
+            handleTime={handleSeconds}
+            placeholder={"second"}
+            handleBlur={handleBlur}
             disabled={disabled}
           />
         </div>
@@ -250,41 +246,64 @@ export default function TimerApp() {
         <div className="popular-timer-container">
           <h2>Popular Timers</h2>
           <div className="options">
-            <button id="btn-option-1" onClick={() => countDownOptions(0, 1, 0)}>
-              1 min
-            </button>
-            <button id="btn-option-2" onClick={() => countDownOptions(0, 3, 0)}>
-              3 min
-            </button>
-            <button id="btn-option-3" onClick={() => countDownOptions(0, 5, 0)}>
-              5 min
-            </button>
-            <button
-              id="btn-option-4"
-              onClick={() => countDownOptions(0, 10, 0)}
-            >
-              10 min
-            </button>
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={0}
+              minutes={1}
+              seconds={0}
+              time={"1 min"}
+            />
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={0}
+              minutes={3}
+              seconds={0}
+              time={"3 min"}
+            />
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={0}
+              minutes={5}
+              seconds={0}
+              time={"5 min"}
+            />
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={0}
+              minutes={10}
+              seconds={0}
+              time={"10 min"}
+            />
           </div>
           <div className="options">
-            <button
-              id="btn-option-5"
-              onClick={() => countDownOptions(0, 20, 0)}
-            >
-              20 min
-            </button>
-            <button
-              id="btn-option-6"
-              onClick={() => countDownOptions(0, 45, 0)}
-            >
-              45 min
-            </button>
-            <button id="btn-option-7" onClick={() => countDownOptions(1, 0, 0)}>
-              1 hr
-            </button>
-            <button id="btn-option-8" onClick={() => countDownOptions(2, 0, 0)}>
-              2 hr
-            </button>
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={0}
+              minutes={20}
+              seconds={0}
+              time={"20 min"}
+            />
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={0}
+              minutes={45}
+              seconds={0}
+              time={"45 min"}
+            />
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={1}
+              minutes={0}
+              seconds={0}
+              time={"1 hr"}
+            />
+            <TimerOptions
+              countDownOptions={countDownOptions}
+              hours={2}
+              minutes={0}
+              seconds={0}
+              time={"2 hr"}
+            />
           </div>
         </div>
       </div>

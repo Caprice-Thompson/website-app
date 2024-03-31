@@ -18,6 +18,7 @@ export default function TicTacToe() {
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
+  const [leaderBoard, setLeaderBoard] = useState("");
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
@@ -70,10 +71,8 @@ export default function TicTacToe() {
     setName(event.target.value);
   }
 
-  function handleNameClick() {
-    // setName("lll");
-    console.log(name);
-    setName("");
+  function addNameToLeaderboard() {
+    setLeaderBoard(name);
   }
 
   return (
@@ -82,12 +81,25 @@ export default function TicTacToe() {
       <div className="name-input">
         <p>Player One Please Enter Name:</p>
         <input onChange={handleChange} />
-        <button onClick={() => handleNameClick()}>Add</button>
+        <button onClick={() => addNameToLeaderboard()}>Add</button>
       </div>
-      <div className="leader-board">
-        <h3>Leader Board</h3>
-        {name}
+      <div className="leader-board-container">
+        <div className="leader-board-title">
+          <h3>LeaderBoard</h3>
+        </div>
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Wins</th>
+            <th>Loss</th>
+            <th>Draw</th>
+          </tr>
+        </table>
+        {leaderBoard}
+        <label>Rank</label>
       </div>
+
       <div className="tic-tac-toe-container">
         <div className="row">
           <Square value={squares[0]} onClick={() => handleClick(0)} />

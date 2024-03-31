@@ -1,5 +1,5 @@
 import React from "react";
-import StarRating from "../../components/Rating";
+import StarRating from "../../components/Rating/Rating.jsx";
 import "./styles.css";
 
 function Home() {

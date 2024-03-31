@@ -78,7 +78,23 @@ h3 {
   color: aliceblue;
 }
 
-.leader-board {
+.leader-board-container {
   color: aliceblue;
   border: 1px solid blue;
+  width: 30%;
+  position: relative;
+  top: 5px;
+  margin-left: 65%;
+  color: #45b6d2;
+  font-size: 24px;
+  cursor: pointer;
+}
+table {
+  border: 2px solid forestgreen;
+  width: 800px;
+  height: 200px;
+}
+
+th {
+  border-bottom: 1px solid black;
 }

@@ -8,7 +8,9 @@
   background-color: rgb(122, 181, 240);
 }
 
-.title h1 {
+.title h1,
+.to-do-list-container h1,
+.to-do-list-container h2 {
   display: grid;
   border-radius: 15px;
   width: 43%;
@@ -31,9 +33,7 @@
   border-radius: 15px;
   outline-color: #989898;
 }
-.list button {
-  border: 5px solid #132a7e;
-}
+
 .task {
   display: grid;
   margin-left: 30%;
@@ -68,7 +68,9 @@
 .task-container {
   position: relative;
 }
-
+.task-container h3 {
+  color: black;
+}
 .task-container span {
   position: absolute;
   top: 5px;
@@ -93,14 +95,4 @@
   font-weight: 500;
   border-radius: 15px;
   outline-color: #989898;
-}
-
-.to-do-list-container h1 {
-  font-size: xx-large;
-  color: rgb(242, 236, 236);
-}
-
-.to-do-list-container h2 {
-  font-size: medium;
-  color: black;
 }

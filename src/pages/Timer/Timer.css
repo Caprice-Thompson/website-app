@@ -22,7 +22,6 @@
   margin-top: 40px;
   border-radius: 30px;
   padding: 20px;
-  display: grid;
   width: 300px;
 }
 
@@ -49,17 +48,13 @@
   color: rgb(20, 4, 88);
 }
 
-.options {
-  margin: 10px;
-  flex-wrap: wrap;
-}
-
 .timer-container button {
   margin: 10px 10px;
   width: 50px;
   height: 30px;
   font-size: 10px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 #currentTime {
