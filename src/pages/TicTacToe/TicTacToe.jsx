@@ -1,6 +1,7 @@
 import "./TicTacToe.css";
 import { useEffect, useState } from "react";
 import Button from "../../components/Button/Button.jsx";
+import Leaderboard from "../../components/Leaderboard/Leaderboard";
 
 function Square({ value, onClick }) {
   return (
@@ -18,7 +19,7 @@ export default function TicTacToe() {
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
-  const [leaderBoard, setLeaderBoard] = useState("");
+  const [leaderBoard, setLeaderBoard] = useState([]);
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
@@ -83,23 +84,7 @@ export default function TicTacToe() {
         <input onChange={handleChange} />
         <button onClick={() => addNameToLeaderboard()}>Add</button>
       </div>
-      <div className="leader-board-container">
-        <div className="leader-board-title">
-          <h3>LeaderBoard</h3>
-        </div>
-        <table>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Wins</th>
-            <th>Loss</th>
-            <th>Draw</th>
-          </tr>
-        </table>
-        {leaderBoard}
-        <label>Rank</label>
-      </div>
-
+      <Leaderboard leaderBoard={leaderBoard} />
       <div className="tic-tac-toe-container">
         <div className="row">
           <Square value={squares[0]} onClick={() => handleClick(0)} />

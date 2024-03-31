@@ -1,0 +1,43 @@
+.leader-board-container {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 50px;
+  width: 400px;
+  height: auto;
+}
+
+.leader-board-title {
+  text-align: center;
+}
+
+.leader-board-title h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  width: 400px;
+}
+
+table th {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  font-size: 14px;
+}
+
+table tr:hover {
+  background-color: #f2f2f2;
+}
