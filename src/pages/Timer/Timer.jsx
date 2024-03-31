@@ -3,6 +3,7 @@ import BackButton from "../../components/Button/Button.jsx";
 import "./Timer.css";
 import TimerOptions from "./TimerOptions.jsx";
 import NumericInput from "../../components/Input/NumericInput.jsx";
+import Modal from "../../components/Modal/Modal.jsx";
 
 export default function TimerApp() {
   const [timer, setTimer] = useState(null);
@@ -15,6 +16,7 @@ export default function TimerApp() {
   const [clearButton, setClearButton] = useState(true);
   const [stopButton, setStopButton] = useState(true);
   const [pauseButton, setPauseButton] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   // TODO: countdown meter next to time remaining
   useEffect(() => {
@@ -111,8 +113,7 @@ export default function TimerApp() {
       minutes === "" ||
       seconds === ""
     ) {
-      // TODO: turn into popup modal
-      alert("The time entered is not valid!");
+      setModalVisible(true);
 
       return;
     }
@@ -306,6 +307,12 @@ export default function TimerApp() {
             />
           </div>
         </div>
+        <Modal
+          title="The time entered is not valid!"
+          show={modalVisible}
+          onClose={() => setModalVisible(false)}
+          children="Please enter a valid input"
+        ></Modal>
       </div>
     </>
   );

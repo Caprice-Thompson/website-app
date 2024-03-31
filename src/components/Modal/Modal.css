@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  height: 300px;
+  height: 290px;
   width: 500px;
   border: 2px solid rgb(25, 49, 230);
   color: rgb(2, 26, 47);
@@ -38,7 +38,16 @@
 }
 
 .modal-header h2 {
+  margin-top: 60px;
   text-align: center;
+  font-size: 25px;
+  color: black;
+}
+
+.modal-content p {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
   color: black;
 }
 
@@ -48,12 +57,11 @@
   font-weight: 500;
   padding: 8px 9px;
   border-radius: 8px;
-  border: none;
   font-size: 18px;
   color: #355473;
   transition: all 0.25s ease;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
-  margin-top: 7%;
+  margin-top: 5%;
   margin-right: 10px;
 }
 

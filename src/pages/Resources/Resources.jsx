@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Accordian from "../../components/Accordian/accordian";
-import "./ResourcesStyles.css";
+import "./Resources.css";
 import CatFact from "../CatFact/CatFact";
 
 const Resources = () => {

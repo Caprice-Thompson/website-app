@@ -90,7 +90,6 @@ function ContactForm() {
             <Modal title="Success" onClose={() => setShow(false)} show={show}>
               Your details have been submitted!
             </Modal>
-            {/* <Modal title="Success" onClose={() => setShow(false)} show={show} /> */}
           </form>
         </div>
       </div>
