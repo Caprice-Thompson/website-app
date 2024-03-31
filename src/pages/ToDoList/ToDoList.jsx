@@ -2,6 +2,7 @@ import "./ToDoList.css";
 import React, { useState } from "react";
 import Task from "./Task";
 import BackButton from "../../components/Button/Button.jsx";
+import Dropdown from "../../components/Dropdown";
 
 export default function ToDoList() {
   const [todoList, setTodoList] = useState([]);
@@ -67,6 +68,13 @@ export default function ToDoList() {
             <input
               onChange={handleTaskDescriptionChange}
               placeholder="Add task description here..."
+            />
+            <Dropdown
+              priority={"Priority:"}
+              option={"P1"}
+              option2={"P2"}
+              option3={"P3"}
+              option4={"P4"}
             />
             <button onClick={addTask}>Add Task</button>
           </div>

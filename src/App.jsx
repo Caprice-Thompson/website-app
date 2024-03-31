@@ -10,6 +10,7 @@ import TicTacToe from "./pages/TicTacToe/TicTacToe";
 import Calculator from "./pages/Calculator/Calculator";
 import Timer from "./pages/Timer/Timer";
 import ToDoList from "./pages/ToDoList/ToDoList";
+import Quiz from "./pages/Quiz/Quiz";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/portfolio/calculator" element={<Calculator />} />
         <Route path="/portfolio/timer" element={<Timer />} />
         <Route path="/portfolio/todo-list" element={<ToDoList />} />
+        <Route path="/portfolio/quiz" element={<Quiz />} />
       </Routes>
     </div>
   );

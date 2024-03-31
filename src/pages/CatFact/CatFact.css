@@ -1,0 +1,8 @@
+.cat-fact {
+  display: grid;
+}
+
+.cat-fact p {
+  border: 3px white;
+  position: fixed;
+}
