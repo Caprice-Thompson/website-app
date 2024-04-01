@@ -4,6 +4,7 @@ import noughts_crosses from "../../../src/images/noughts_crosses.jpg";
 import calculator from "../../../src/images/calculator.png";
 import timer from "../../../src/images/timer.jpg";
 import todo from "../../images/todo.png";
+import quiz from "../../images/quiz.jpg";
 import { useNavigate } from "react-router-dom";
 import ProjectSelection from "../../components/ProjectSelection/ProjectSelection";
 
@@ -24,7 +25,7 @@ const Portfolio = () => {
         nav={"tic-tac-toe"}
         image={noughts_crosses}
         alt={"noughts logo"}
-        children={"Click to Play Tic Tac Toe XO"}
+        children={"Click to play Tic Tac Toe XO"}
       />
       <ProjectSelection
         handleProjectSelection={handleProjectSelection}
@@ -46,6 +47,13 @@ const Portfolio = () => {
         image={todo}
         alt={"todo list logo"}
         children={"Click to use Todo list"}
+      />
+      <ProjectSelection
+        handleProjectSelection={handleProjectSelection}
+        nav={"quiz"}
+        image={quiz}
+        alt={"quiz logo"}
+        children={"Click to play a Quiz"}
       />
     </>
   );

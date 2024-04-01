@@ -24,8 +24,6 @@ function ContactForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    console.log("here");
     setShow(true);
     // alert(
     //   `First Name: ${formData.firstname}, Last Name: ${formData.lastname}, Email: ${formData.email}, Message: ${formData.message}`
