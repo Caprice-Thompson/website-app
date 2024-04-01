@@ -46,12 +46,7 @@
   width: 100%;
   display: grid;
 }
-/* .task-container span {
-  display: inline-block;
-  color: #333;
-  font-size: 24px;
-  cursor: pointer;
-} */
+
 .addTask button:hover {
   background-color: rgb(12, 39, 150);
   color: #fff;
@@ -76,7 +71,7 @@
   margin-right: 74%;
 }
 
-.priority-container select {
+.dropdown-container select {
   background-color: #ffffff;
   color: #333;
   padding: 4px 5px;
@@ -84,4 +79,3 @@
   border: 2px solid #413e3e;
   border-radius: 14px;
 }
-

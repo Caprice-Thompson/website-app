@@ -1,6 +1,6 @@
 export default function Dropdown(props) {
   return (
-    <div className="priority-container">
+    <div className="dropdown-container">
       <select onChange={props.handleDropdown} name="selectedOptions">
         <option value={props.option}>
           {props.option}
