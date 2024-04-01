@@ -69,13 +69,24 @@
   margin-top: 20px;
   display: grid;
   margin-right: 74%;
+  border: none;
 }
 
 .dropdown-container select {
+  width: 80px;
+  height: 50px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* .selection {
   background-color: #ffffff;
   color: #333;
   padding: 4px 5px;
   cursor: pointer;
   border: 2px solid #413e3e;
   border-radius: 14px;
-}
+} */

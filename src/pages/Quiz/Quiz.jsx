@@ -54,7 +54,7 @@ export default function Quiz() {
       {questions.length > 0 && (
         <>
           <h2>{questions[currentQuestion].question}</h2>
-          <div className="options">
+          <div className="quiz-options">
             {questions[currentQuestion].incorrect_answers
               .concat(questions[currentQuestion].correct_answer)
               .map((option, index) => (
