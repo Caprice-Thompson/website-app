@@ -4,11 +4,12 @@ export default function TextInput(props) {
       <input
         id={props.id}
         type={props.type}
+        className={props.name}
         value={props.value}
-        onChange={props.handleTime}
         placeholder={props.placeholder}
-        onBlur={props.handleBlur}
-        disabled={props.disabled}
+        style={props.style}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
       />
     </>
   );

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Task from "./Task/Task";
 import BackButton from "../../components/Button/Button.jsx";
 import Dropdown from "../../components/Dropdown";
+import TextInput from "../../components/Input/TextInput";
 
 export default function ToDoList() {
   const [todoList, setTodoList] = useState([]);
@@ -10,68 +11,65 @@ export default function ToDoList() {
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [dropdownValue, setDropdownValue] = useState("P1");
   const [taskCount, setTaskCount] = useState(0);
-  const [inputValue, setInputValue] = useState("");
+  const [editingTaskId, setEditingTaskId] = useState(null);
 
   const handleTaskTitleChange = (event) => {
     setNewTask(event.target.value);
   };
 
-  function handleCheckbox(e) {
-    setChecked(e.target.checked);
-  }
-
   const handleTaskDescriptionChange = (event) => {
     setNewTaskDescription(event.target.value);
-  };
-
-  const updateInputValue = (event) => {
-    setInputValue(event.target.value);
   };
 
   const handlePriority = (event) => {
     setDropdownValue(event.target.value);
   };
-  // each task to have an object - id and taskname, to differentiate them
+
   const addTask = () => {
     setTaskCount(taskCount + 1);
     const task = {
-      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
+      id: taskCount + 1,
       taskName: newTask,
       taskDescription: newTaskDescription,
       priority: dropdownValue,
       completed: false,
     };
     setTodoList([...todoList, task]);
-    console.log(task);
-  };
-  // if task is = to task name rtn false
-  const deleteTask = (id) => {
-    setTaskCount(taskCount - 1);
-    const newTodoList = todoList.filter((task) => {
-      // simplify: return task !== taskName
-      // task !== taskName
-      if (task.id === id) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    setTodoList(newTodoList);
+    resetForm();
   };
 
-  const editTask = () => {};
+  const deleteTask = (id) => {
+    setTaskCount(taskCount - 1);
+    setTodoList(todoList.filter((task) => task.id !== id));
+  };
 
   const completeTask = (id) => {
     setTodoList(
-      todoList.map((task) => {
-        if (task.id === id) {
-          return { ...task, completed: true };
-        } else {
-          return task;
-        }
-      })
+      todoList.map((task) =>
+        task.id === id ? { ...task, completed: true } : task
+      )
     );
   };
+
+  const editTask = (id) => {
+    setEditingTaskId(id);
+  };
+
+  const updateTask = (updatedTask) => {
+    setTodoList(
+      todoList.map((task) =>
+        task.id === updatedTask.id ? { ...task, ...updatedTask } : task
+      )
+    );
+    setEditingTaskId(null);
+  };
+
+  const resetForm = () => {
+    setNewTask("");
+    setNewTaskDescription("");
+    setDropdownValue("P1");
+  };
+
   return (
     <>
       <BackButton />
@@ -81,14 +79,11 @@ export default function ToDoList() {
       <div className="to-do-list-container">
         <div className="task-title">
           <input
+            value={newTask}
             onChange={handleTaskTitleChange}
             placeholder="Add task title..."
           />
           <div className="addTask">
-            {/* <input
-              onChange={handleTaskDescriptionChange}
-              placeholder="Add task description here..."
-            /> */}
             <div className="selection">
               <Dropdown
                 option={"P1"}
@@ -103,21 +98,35 @@ export default function ToDoList() {
         </div>
       </div>
       <div className="list">
-        <h1>Task List ({taskCount})</h1>
-        {todoList.map((task) => {
-          return (
-            <Task
-              taskName={task.taskName}
-              id={task.id}
-              taskDescription={task.taskDescription}
-              completed={task.completed}
-              priority={task.priority}
-              deleteTask={deleteTask}
-              completeTask={completeTask}
-              editTask={editTask}
-            />
-          );
-        })}
+        <h1>Task List ({todoList.length})</h1>
+        {todoList.map((task) => (
+          <div key={task.id}>
+            {editingTaskId === task.id ? (
+              <TextInput
+                type="text"
+                value={task.taskName}
+                className="text-input"
+                onChange={(e) =>
+                  updateTask({ ...task, taskName: e.target.value })
+                }
+                onBlur={() => setEditingTaskId(null)}
+              />
+            ) : (
+              <Task
+                task={task}
+                deleteTask={deleteTask}
+                completeTask={completeTask}
+                editTask={() => editTask(task.id)}
+                taskName={task.taskName}
+                id={task.id}
+                taskDescription={task.taskDescription}
+                completed={task.completed}
+                priority={task.priority}
+                onEdit={() => editTask(task.id)}
+              />
+            )}
+          </div>
+        ))}
       </div>
     </>
   );
