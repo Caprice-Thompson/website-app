@@ -3,31 +3,31 @@
 .menu-container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  background-color: lightseagreen;
-  width: 500px;
-  height: 500px;
-  border-radius: 10px;
-  margin-left: 600px;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(27, 174, 167);
+  width: 500px;
+  height: 550px;
+  border-radius: 10px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   overflow-y: auto;
 }
 .quiz-container h2 {
   font-size: 25px;
-  margin: 30px;
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
-
-.menu-container select {
-  width: 300px;
-  height: 50px;
-  margin-bottom: 30px;
-  border: none;
-  border-radius: 5px;
+.quiz-container h3 {
   font-size: 20px;
-  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .menu-container button,
@@ -62,4 +62,5 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 0px;
 }

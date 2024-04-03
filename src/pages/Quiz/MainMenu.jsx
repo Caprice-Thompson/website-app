@@ -1,31 +1,50 @@
 import React, { useState, useContext } from "react";
 import { QuizContext } from "../../Helpers/Contexts";
 import "./Quiz.css";
-import Dropdown from "../../components/Dropdown";
+import Dropdown from "../../components/Dropdown/Dropdown";
 
 export default function MainMenu() {
-  const { gameState, setGameState } = useContext(QuizContext);
-  const [dropdownValue, setDropdownValue] = useState("");
+  const {
+    gameState,
+    setGameState,
+    difficultyValue,
+    setDifficultyValue,
+    category,
+    setCategory,
+  } = useContext(QuizContext);
 
-  const handleDropdown = (event) => {
-    setDropdownValue(event.target.value);
+  const handleDifficultyDropdown = (event) => {
+    setDifficultyValue(event.target.value);
   };
+
+  const handleCategoryDropdown = (event) => {
+    const selectedIndex = event.target.selectedIndex;
+    const selectedValue = event.target.options[selectedIndex].value;
+    setCategory(selectedValue);
+    console.log(selectedValue);
+  };
+  console.log(difficultyValue);
   return (
     <div className="menu-container">
       <Dropdown
-        option={"General Knowledge"}
-        option2={"Science: Mathematics"}
-        option3={"Mythology"}
-        option4={"Entertainment: Film"}
-        handleDropdown={handleDropdown}
+        id="selected-options"
+        label="Categories"
+        options={[
+          "General Knowledge",
+          "Science: Mathematics",
+          "Mythology",
+          "Entertainment: Film",
+        ]}
+        values={[9, 19, 20, 11]}
+        handleDropdown={handleCategoryDropdown}
       />
 
       <Dropdown
-        option={"Easy"}
-        option2={"Medium"}
-        option3={"Hard"}
-        option4={"Any Difficulty"}
-        handleDropdown={handleDropdown}
+        id="selected-options"
+        label="Difficulty"
+        options={["Easy", "Medium", "Hard", "Any Difficulty"]}
+        values={["easy", "medium", "hard", ""]}
+        handleDropdown={handleDifficultyDropdown}
       />
       <button
         onClick={() => {

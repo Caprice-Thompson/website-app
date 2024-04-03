@@ -2,7 +2,7 @@ import "./ToDoList.css";
 import React, { useState } from "react";
 import Task from "./Task/Task";
 import BackButton from "../../components/Button/Button.jsx";
-import Dropdown from "../../components/Dropdown";
+import Dropdown from "../../components/Dropdown/Dropdown";
 import TextInput from "../../components/Input/TextInput";
 
 export default function ToDoList() {
@@ -86,10 +86,10 @@ export default function ToDoList() {
           <div className="addTask">
             <div className="selection">
               <Dropdown
-                option={"P1"}
-                option2={"P2"}
-                option3={"P3"}
-                option4={"P4"}
+                id="priority-options"
+                label="Priority"
+                options={["P1", "P2", "P3", "P4"]}
+                values={["P1", "P2", "P3", "P4"]}
                 handleDropdown={handlePriority}
               />
             </div>

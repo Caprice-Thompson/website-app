@@ -2,20 +2,28 @@ import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
 import { QuizContext } from "../../Helpers/Contexts";
 import decodeEntities from "../../Helpers/Decode";
+import { lowercaseLetter } from "../../Helpers/Action";
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
-  const { score, setScore, setGameState, questions, setQuestions } =
-    useContext(QuizContext);
+  const {
+    score,
+    setScore,
+    setGameState,
+    questions,
+    setQuestions,
+    difficultyValue,
+    category,
+  } = useContext(QuizContext);
 
   useEffect(() => {
-    getQuestions();
+    getQuestions(category, difficultyValue);
   }, []);
 
-  function getQuestions() {
+  function getQuestions(category, difficulty) {
     Axios.get(
-      "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
     )
       .then((res) => {
         console.log(res.data.results);
@@ -40,6 +48,7 @@ export default function Quiz() {
       setScore(score + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
+    console.log(currentQuestion);
   }
 
   function finishQuiz() {
@@ -53,7 +62,10 @@ export default function Quiz() {
     <div className="quiz-container">
       {questions.length > 0 && (
         <>
-          <h2>{questions[currentQuestion].question}</h2>
+          <h2>
+            {currentQuestion + 1}/{questions.length}
+          </h2>
+          <h3>{questions[currentQuestion].question}</h3>
           <div className="quiz-options">
             {questions[currentQuestion].incorrect_answers
               .concat(questions[currentQuestion].correct_answer)

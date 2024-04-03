@@ -1,0 +1,18 @@
+.dropdown-container {
+  display: flex;
+  width: 300px;
+  justify-items: center;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.dropdown-container #selected-options {
+  border: none;
+  border-radius: 5px;
+  margin-left: 0px;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+}

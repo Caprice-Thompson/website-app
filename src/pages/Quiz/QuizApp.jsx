@@ -8,6 +8,8 @@ import { QuizContext } from "../../Helpers/Contexts";
 export default function QuizApp() {
   const [gameState, setGameState] = useState("menu");
   const [questions, setQuestions] = useState([]);
+  const [difficultyValue, setDifficultyValue] = useState("");
+  const [category, setCategory] = useState("");
   const [score, setScore] = useState(0);
   return (
     <div className="quiz">
@@ -20,6 +22,10 @@ export default function QuizApp() {
           setScore,
           questions,
           setQuestions,
+          difficultyValue,
+          setDifficultyValue,
+          category,
+          setCategory,
         }}
       >
         {gameState === "menu" && <MainMenu />}

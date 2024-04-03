@@ -65,12 +65,12 @@
   outline-color: #989898;
 }
 
-.selection {
+/* .selection {
   margin-top: 20px;
   display: grid;
   margin-right: 74%;
   border: none;
-}
+} */
 
 .dropdown-container select {
   width: 80px;
@@ -81,7 +81,7 @@
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
-}
+} 
 
 .text-input {
   width: 100%;
