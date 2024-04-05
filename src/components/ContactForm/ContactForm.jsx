@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Modal from "../../components/Modal/Modal";
+import TextInput from "../Input/TextInput";
 import "./ContactForm.css";
 
 // controlled components
@@ -37,8 +38,7 @@ function ContactForm() {
         <div className="input-container">
           <form>
             <div className="form-row">
-              <input
-                type="text"
+              <TextInput
                 id="firstname"
                 name="firstname"
                 className="firstname"
@@ -46,7 +46,7 @@ function ContactForm() {
                 value={formData.firstname}
                 onChange={handleChange}
               />
-              <input
+              <TextInput
                 type="text"
                 id="lastname"
                 name="lastname"
@@ -54,9 +54,7 @@ function ContactForm() {
                 value={formData.lastname}
                 onChange={handleChange}
               />
-            </div>
-            <div className="form-row">
-              <input
+              <TextInput
                 type="subject"
                 id="subject"
                 name="subject"
@@ -64,7 +62,7 @@ function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
               />
-              <input
+              <TextInput
                 type="email"
                 id="email"
                 name="email"

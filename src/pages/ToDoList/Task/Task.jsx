@@ -4,11 +4,25 @@ import "./Task.css";
 import Checkbox from "../../../components/Checkbox/Checkbox";
 
 export default function Task(props) {
+  const priority = [
+    { label: "P1", colour: "red" },
+    { label: "P2", colour: "#FF7433" },
+    { label: "P3", colour: "#F5E240" },
+    { label: "P4", colour: "#3860E7" },
+  ];
+
+  function getPriorityColour(label) {
+    const priorityColour = priority.find(
+      (priorityColour) => priorityColour.label === label
+    );
+    return priorityColour ? priorityColour.colour : null;
+  }
   return (
     <div className="task-container">
       <div className={"task" + (props.completed ? " completed" : "")}>
-        <label>{props.priority}</label>
-        <p>{props.taskDescription}</p>
+        <label style={{ backgroundColor: getPriorityColour(props.priority) }}>
+          {props.priority}
+        </label>
         <div className="task-icons">
           <IconLink
             id="edit-task"

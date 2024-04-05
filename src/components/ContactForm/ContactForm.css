@@ -9,11 +9,7 @@
   display: flex;
 }
 
-.input-container {
-  display: flex;
-}
 .form-container h1 {
-  display: grid;
   margin-left: 90px;
   inline-size: 150px;
   margin-top: 16%;
@@ -28,7 +24,6 @@
   height: 250px;
   width: 91%;
   position: relative;
-  display: grid;
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
@@ -39,23 +34,10 @@
   outline-color: #989898;
 }
 
-.form-row input {
-  margin-top: 160px;
-  width: 300px;
-  height: 35px;
-  position: relative;
-  bottom: 10px;
-  margin-left: 64px;
-  left: 35%;
-  display: grid;
-  background-color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  box-shadow: none;
-  border-radius: 5px;
-  outline-color: #989898;
+.form-row #firstname,
+.form-row #lastname,
+.form-row #subject,
+.form-row #email {
 }
 .form-container .form-row {
   height: 50px;

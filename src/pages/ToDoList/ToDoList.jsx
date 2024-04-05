@@ -8,8 +8,7 @@ import TextInput from "../../components/Input/TextInput";
 export default function ToDoList() {
   const [todoList, setTodoList] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const [newTaskDescription, setNewTaskDescription] = useState("");
-  const [dropdownValue, setDropdownValue] = useState("P1");
+  const [dropdownValue, setDropdownValue] = useState("");
   const [taskCount, setTaskCount] = useState(0);
   const [editingTaskId, setEditingTaskId] = useState(null);
 
@@ -17,12 +16,10 @@ export default function ToDoList() {
     setNewTask(event.target.value);
   };
 
-  const handleTaskDescriptionChange = (event) => {
-    setNewTaskDescription(event.target.value);
-  };
-
   const handlePriority = (event) => {
     setDropdownValue(event.target.value);
+    // selecting option from dropdown
+    console.log(dropdownValue);
   };
 
   const addTask = () => {
@@ -30,7 +27,6 @@ export default function ToDoList() {
     const task = {
       id: taskCount + 1,
       taskName: newTask,
-      taskDescription: newTaskDescription,
       priority: dropdownValue,
       completed: false,
     };
@@ -61,13 +57,12 @@ export default function ToDoList() {
         task.id === updatedTask.id ? { ...task, ...updatedTask } : task
       )
     );
+    console.log(task);
     setEditingTaskId(null);
   };
 
   const resetForm = () => {
     setNewTask("");
-    setNewTaskDescription("");
-    setDropdownValue("P1");
   };
 
   return (
@@ -78,21 +73,21 @@ export default function ToDoList() {
       </div>
       <div className="to-do-list-container">
         <div className="task-title">
-          <input
+          <TextInput
             value={newTask}
             onChange={handleTaskTitleChange}
             placeholder="Add task title..."
           />
           <div className="addTask">
-            <div className="selection">
-              <Dropdown
-                id="priority-options"
-                label="Priority"
-                options={["P1", "P2", "P3", "P4"]}
-                values={["P1", "P2", "P3", "P4"]}
-                handleDropdown={handlePriority}
-              />
-            </div>
+            <Dropdown
+              id="priority-options"
+              label="Priority"
+              options={["P1", "P2", "P3", "P4"]}
+              values={["P1", "P2", "P3", "P4"]}
+              color={["red", "orange", "blue", "green"]}
+              handleDropdown={handlePriority}
+            />
+
             <button onClick={addTask}>Add Task</button>
           </div>
         </div>
@@ -103,6 +98,7 @@ export default function ToDoList() {
           <div key={task.id}>
             {editingTaskId === task.id ? (
               <TextInput
+                id="edit-input"
                 type="text"
                 value={task.taskName}
                 className="text-input"
@@ -119,10 +115,11 @@ export default function ToDoList() {
                 editTask={() => editTask(task.id)}
                 taskName={task.taskName}
                 id={task.id}
-                taskDescription={task.taskDescription}
                 completed={task.completed}
                 priority={task.priority}
                 onEdit={() => editTask(task.id)}
+                values={["P1", "P2", "P3", "P4"]}
+                color={["red", "orange", "blue", "green"]}
               />
             )}
           </div>

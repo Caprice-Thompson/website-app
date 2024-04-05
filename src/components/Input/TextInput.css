@@ -1,0 +1,11 @@
+.text-input input {
+  height: 35px;
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+  border-radius: 5px;
+  outline-color: #989898;
+}

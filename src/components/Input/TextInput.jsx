@@ -1,6 +1,7 @@
+import "./TextInput.css";
 export default function TextInput(props) {
   return (
-    <>
+    <div className="text-input">
       <input
         id={props.id}
         type={props.type}
@@ -11,6 +12,6 @@ export default function TextInput(props) {
         onChange={props.onChange}
         onBlur={props.onBlur}
       />
-    </>
+    </div>
   );
 }

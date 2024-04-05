@@ -23,14 +23,9 @@
   padding-left: 10px;
   margin-top: 20px;
   margin-left: 65px;
-  height: 25px;
   width: 80%;
   display: grid;
-  background-color: #ffffff;
-  font-family: "Open Sans", sans-serif;
   font-size: 15px;
-  border-radius: 15px;
-  outline-color: #989898;
 }
 
 .addTask button {
@@ -48,53 +43,24 @@
 }
 
 .addTask button:hover {
-  background-color: rgb(12, 39, 150);
+  background-color: rgb(51, 70, 147);
   color: #fff;
 }
 
-.addTask input {
-  margin-top: 20px;
-  height: 40px;
-  width: 80%;
-  display: grid;
-  background-color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 15px;
-  outline-color: #989898;
-}
-
-/* .selection {
-  margin-top: 20px;
-  display: grid;
-  margin-right: 74%;
-  border: none;
-} */
-
-.dropdown-container select {
-  width: 80px;
-  height: 50px;
-  margin-bottom: 30px;
-  margin-left: 40px;
+#priority-options {
+  display: flex;
+  position: absolute;
+  right: 56%;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 18px;
   cursor: pointer;
-} 
-
-.text-input {
-  width: 100%;
   padding: 10px;
-  border: 1px solid #dfdfdf;
-  outline: none;
-  border-radius: 20px;
+  box-sizing: border-box;
+  width: 10%;
 }
-/* .selection {
-  background-color: #ffffff;
-  color: #333;
-  padding: 4px 5px;
-  cursor: pointer;
-  border: 2px solid #413e3e;
-  border-radius: 14px;
-} */
+
+.text-input input {
+  width: 80%;
+}
