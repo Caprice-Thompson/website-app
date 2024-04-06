@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { QuizContext } from "../../Helpers/Contexts";
+import { GameContext } from "../../Helpers/Contexts";
 import "./Quiz.css";
 import Dropdown from "../../components/Dropdown/Dropdown";
 
@@ -11,7 +11,7 @@ export default function MainMenu() {
     setDifficultyValue,
     category,
     setCategory,
-  } = useContext(QuizContext);
+  } = useContext(GameContext);
 
   const handleDifficultyDropdown = (event) => {
     setDifficultyValue(event.target.value);

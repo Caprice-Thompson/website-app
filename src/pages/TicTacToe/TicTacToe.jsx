@@ -1,7 +1,7 @@
 import "./TicTacToe.css";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Button from "../../components/Button/Button.jsx";
-import Leaderboard from "../../components/Leaderboard/Leaderboard";
+import { GameContext } from "../../Helpers/Contexts";
 
 function Square({ value, onClick }) {
   return (
@@ -19,7 +19,7 @@ export default function TicTacToe() {
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
-  const [leaderBoard, setLeaderBoard] = useState([]);
+  const { setGameState, playerOne, playerTwo } = useContext(GameContext);
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
@@ -27,7 +27,7 @@ export default function TicTacToe() {
     } else if (getWinner(squares)) {
       setStatus(`Winner is ${getWinner(squares)}.\nPlease Restart the game`);
     } else {
-      setStatus(`Next player is ${isXTurn ? "X" : "O"}`);
+      setStatus(`It's ${isXTurn ? `${playerOne}` : `${playerTwo}`} turn`);
     }
   }, [squares, isXTurn]);
 
@@ -68,23 +68,9 @@ export default function TicTacToe() {
     setSquares(Array(9).fill(""));
   }
 
-  function handleChange(event) {
-    setName(event.target.value);
-  }
-
-  function addNameToLeaderboard() {
-    setLeaderBoard(name);
-  }
-
   return (
     <>
       <Button />
-      <div className="name-input">
-        <p>Player One Please Enter Name:</p>
-        <input onChange={handleChange} />
-        <button onClick={() => addNameToLeaderboard()}>Add</button>
-      </div>
-      <Leaderboard leaderBoard={leaderBoard} />
       <div className="tic-tac-toe-container">
         <div className="row">
           <Square value={squares[0]} onClick={() => handleClick(0)} />

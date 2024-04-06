@@ -3,7 +3,7 @@ import MainMenu from "./MainMenu";
 import Quiz from "./Quiz";
 import EndScreen from "./EndScreen";
 
-import { QuizContext } from "../../Helpers/Contexts";
+import { GameContext } from "../../Helpers/Contexts";
 
 export default function QuizApp() {
   const [gameState, setGameState] = useState("menu");
@@ -14,7 +14,7 @@ export default function QuizApp() {
   return (
     <div className="quiz">
       <h1>Quiz App</h1>
-      <QuizContext.Provider
+      <GameContext.Provider
         value={{
           gameState,
           setGameState,
@@ -31,7 +31,7 @@ export default function QuizApp() {
         {gameState === "menu" && <MainMenu />}
         {gameState === "quiz" && <Quiz />}
         {gameState === "endScreen" && <EndScreen />}
-      </QuizContext.Provider>
+      </GameContext.Provider>
     </div>
   );
 }

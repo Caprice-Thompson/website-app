@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
-import { QuizContext } from "../../Helpers/Contexts";
+import { GameContext } from "../../Helpers/Contexts";
 import decodeEntities from "../../Helpers/Decode";
 import { lowercaseLetter } from "../../Helpers/Action";
 
@@ -15,7 +15,7 @@ export default function Quiz() {
     setQuestions,
     difficultyValue,
     category,
-  } = useContext(QuizContext);
+  } = useContext(GameContext);
 
   useEffect(() => {
     getQuestions(category, difficultyValue);

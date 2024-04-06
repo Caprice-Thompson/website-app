@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
 //context api
-export const QuizContext = createContext();
+export const GameContext = createContext();

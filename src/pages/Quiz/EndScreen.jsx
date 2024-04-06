@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { QuizContext } from "../../Helpers/Contexts";
+import { GameContext } from "../../Helpers/Contexts";
 import "./Quiz.css";
 
 export default function EndScreen() {
-  const { score, setScore, setGameState, questions } = useContext(QuizContext);
+  const { score, setScore, setGameState, questions } = useContext(GameContext);
 
   function restartQuiz() {
     setGameState("menu");
