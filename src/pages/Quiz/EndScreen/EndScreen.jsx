@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { GameContext } from "../../Helpers/Contexts";
-import "./Quiz.css";
+import { GameContext } from "../../../Helpers/Contexts";
+import "./../Quiz/Quiz.css";
 
 export default function EndScreen() {
   const { score, setScore, setGameState, questions } = useContext(GameContext);

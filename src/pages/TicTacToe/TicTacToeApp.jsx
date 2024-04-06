@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import GameMenu from "./GameMenu";
-import TicTacToe from "./TicTacToe";
-import LeaderboardScreen from "./LeaderboardScreen";
-import PlayerMenu from "./PlayerMenu";
+import GameMenu from "./GameMenu/GameMenu";
+import TicTacToe from "./TicTacToe/TicTacToe";
+import LeaderboardScreen from "./LeaderboardScreen/LeaderboardScreen";
+import PlayerMenu from "./PlayerMenu/PlayerMenu";
 
 import { GameContext } from "../../Helpers/Contexts";
 

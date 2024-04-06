@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import MainMenu from "./MainMenu";
-import Quiz from "./Quiz";
-import EndScreen from "./EndScreen";
+import MainMenu from "./MainMenu/MainMenu";
+import Quiz from "./Quiz/Quiz";
+import EndScreen from "./EndScreen/EndScreen";
 
 import { GameContext } from "../../Helpers/Contexts";
 

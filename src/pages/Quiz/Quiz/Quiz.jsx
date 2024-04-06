@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
-import { GameContext } from "../../Helpers/Contexts";
-import decodeEntities from "../../Helpers/Decode";
-import { lowercaseLetter } from "../../Helpers/Action";
+import { GameContext } from "../../../Helpers/Contexts";
+import decodeEntities from "../../../Helpers/Decode";
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);

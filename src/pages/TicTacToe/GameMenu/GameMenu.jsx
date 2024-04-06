@@ -1,6 +1,7 @@
-import Dropdown from "../../components/Dropdown/Dropdown";
+import Dropdown from "../../../components/Dropdown/Dropdown";
 import React, { useState, useContext } from "react";
-import { GameContext } from "../../Helpers/Contexts";
+import { GameContext } from "../../../Helpers/Contexts";
+import "./GameMenu.css";
 
 export default function GameMenu() {
   const { setGameState } = useContext(GameContext);

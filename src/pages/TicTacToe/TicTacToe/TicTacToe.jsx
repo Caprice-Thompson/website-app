@@ -1,7 +1,7 @@
 import "./TicTacToe.css";
 import React, { useState, useEffect, useContext } from "react";
-import Button from "../../components/Button/Button.jsx";
-import { GameContext } from "../../Helpers/Contexts";
+import Button from "../../../components/Button/Button.jsx";
+import { GameContext } from "../../../Helpers/Contexts";
 
 function Square({ value, onClick }) {
   return (

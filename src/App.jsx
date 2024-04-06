@@ -6,12 +6,10 @@ import About from "./pages/About/About";
 import Resources from "./pages/Resources/Resources";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import Contact from "./pages/Contact/Contact";
-import TicTacToe from "./pages/TicTacToe/TicTacToe";
 import Calculator from "./pages/Calculator/Calculator";
 import Timer from "./pages/Timer/Timer";
 import ToDoList from "./pages/ToDoList/ToDoList";
 import QuizApp from "./pages/Quiz/QuizApp";
-import PlayerMenu from "./pages/TicTacToe/PlayerMenu";
 import TicTacToeApp from "./pages/TicTacToe/TicTacToeApp";
 
 function App() {

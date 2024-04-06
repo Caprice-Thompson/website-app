@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { GameContext } from "../../Helpers/Contexts";
-import "./Quiz.css";
-import Dropdown from "../../components/Dropdown/Dropdown";
+import { GameContext } from "../../../Helpers/Contexts";
+import "./../Quiz/Quiz.css";
+import Dropdown from "../../../components/Dropdown/Dropdown";
 
 export default function MainMenu() {
   const {

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
-import { GameContext } from "../../Helpers/Contexts";
-import TextInput from "../../components/Input/TextInput";
-import "./TicTacToe.css";
+import { GameContext } from "../../../Helpers/Contexts";
+import TextInput from "../../../components/Input/TextInput";
 
 export default function PlayerMenu() {
   const { setGameState, setPlayerOne } = useContext(GameContext);
