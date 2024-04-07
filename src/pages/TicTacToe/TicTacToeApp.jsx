@@ -12,7 +12,8 @@ export default function TicTacToeApp() {
   // later - pass as an array, .map and then update with player 2
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
-  const [score, setScore] = useState(0);
+  const [draw, setDraw] = useState(0);
+  const [playerOneWin, setPlayerOneWin] = useState(0);
   return (
     <div className="tictactoe">
       <h1>TicTacToe App</h1>
@@ -20,8 +21,10 @@ export default function TicTacToeApp() {
         value={{
           gameState,
           setGameState,
-          score,
-          setScore,
+          playerOneWin,
+          setPlayerOneWin,
+          draw,
+          setDraw,
           rounds,
           setRounds,
           playerOne,

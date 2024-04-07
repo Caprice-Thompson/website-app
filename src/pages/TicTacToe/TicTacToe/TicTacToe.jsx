@@ -18,16 +18,28 @@ export default function TicTacToe() {
   const [squares, setSquares] = useState(Array(9).fill(""));
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
-  const [addClickCount, setAddClickCount] = useState(0);
   const [count, setCount] = useState(1);
-  const { setGameState, playerOne, playerTwo, setRounds, rounds } =
-    useContext(GameContext);
+  const {
+    setGameState,
+    playerOne,
+    playerTwo,
+    setRounds,
+    rounds,
+    draw,
+    setDraw,
+    playerOneWin,
+    setPlayerOneWin,
+  } = useContext(GameContext);
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
       setStatus("This is a draw! Please restart the game");
+      setDraw(draw + 1);
     } else if (getWinner(squares)) {
       setStatus(`Winner is ${getWinner(squares)}.\nClick to play next round`);
+      if (getWinner(squares) === "X") {
+        setPlayerOneWin(playerOneWin + 1);
+      }
     } else {
       setStatus(`It's ${isXTurn ? `${playerOne}` : `${playerTwo}`} turn`);
     }

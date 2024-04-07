@@ -1,3 +1,4 @@
+import React from "react";
 import "./Leaderboard.css";
 
 export default function Leaderboard(props) {
@@ -7,17 +8,18 @@ export default function Leaderboard(props) {
         <h3>Leaderboard</h3>
       </div>
       <table>
-        <tr>
-          <th>#Rank</th>
-          <th>Name</th>
-          <th>Wins</th>
-          <th>Loss</th>
-          <th>Draw</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>#Rank</th>
+            <th>Name</th>
+            <th>Wins</th>
+            <th>Loss</th>
+            <th>Draw</th>
+          </tr>
+        </thead>
         <tbody>
-          {props.leaderBoard}
           {props.leaderBoard.map((entry, index) => (
-            <tr key={index}>
+            <tr className="table-row" key={index}>
               <td>{index + 1}</td>
               <td>{entry.name}</td>
               <td>{entry.wins}</td>
