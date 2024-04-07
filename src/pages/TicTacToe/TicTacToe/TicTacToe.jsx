@@ -18,14 +18,16 @@ export default function TicTacToe() {
   const [squares, setSquares] = useState(Array(9).fill(""));
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
-  const [name, setName] = useState("");
-  const { setGameState, playerOne, playerTwo } = useContext(GameContext);
+  const [addClickCount, setAddClickCount] = useState(0);
+  const [count, setCount] = useState(1);
+  const { setGameState, playerOne, playerTwo, setRounds, rounds } =
+    useContext(GameContext);
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
       setStatus("This is a draw! Please restart the game");
     } else if (getWinner(squares)) {
-      setStatus(`Winner is ${getWinner(squares)}.\nPlease Restart the game`);
+      setStatus(`Winner is ${getWinner(squares)}.\nClick to play next round`);
     } else {
       setStatus(`It's ${isXTurn ? `${playerOne}` : `${playerTwo}`} turn`);
     }
@@ -63,15 +65,21 @@ export default function TicTacToe() {
     setSquares(cpySquares);
   }
 
-  function handleRestart() {
+  function handleRound() {
     setIsXTurn(true);
     setSquares(Array(9).fill(""));
+    if (count < rounds) {
+      setCount(count + 1);
+    } else {
+      setGameState("leaderboard");
+    }
   }
 
   return (
     <>
       <Button />
       <div className="tic-tac-toe-container">
+        <h3>Round: {count}</h3>
         <div className="row">
           <Square value={squares[0]} onClick={() => handleClick(0)} />
           <Square value={squares[1]} onClick={() => handleClick(1)} />
@@ -91,7 +99,7 @@ export default function TicTacToe() {
         </div>
         <div className="status">{status}</div>
         <div className="restart">
-          <button onClick={() => handleRestart()}>Restart Game</button>
+          <button onClick={() => handleRound()}>Next Round</button>
         </div>
       </div>
     </>

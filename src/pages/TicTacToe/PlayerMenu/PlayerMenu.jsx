@@ -3,29 +3,41 @@ import { GameContext } from "../../../Helpers/Contexts";
 import TextInput from "../../../components/Input/TextInput";
 
 export default function PlayerMenu() {
-  const { setGameState, setPlayerOne } = useContext(GameContext);
+  const { setGameState, setPlayerOne, setPlayerTwo, playerOne, playerTwo } =
+    useContext(GameContext);
   const [name, setName] = useState("");
+  const [addClickCount, setAddClickCount] = useState(0);
 
   function handleClick() {
-    setName("");
-    // store name
-    //rest form
-  }
-
-  function handleNextClick() {
-    setGameState("gameMenu");
+    if (name.trim() !== "") {
+      if (!playerOne) {
+        setPlayerOne(name.trim());
+      } else if (!playerTwo) {
+        setPlayerTwo(name.trim());
+      }
+      setName("");
+      setAddClickCount((prevCount) => prevCount + 1);
+    }
+    if (addClickCount >= 1) {
+      setGameState("gameMenu");
+    }
   }
 
   function handleChange(event) {
-    setPlayerOne(event.target.value);
+    setName(event.target.value);
   }
+
   return (
     <div className="player-menu-container">
-      <h3>Player One please add your name</h3>
-      <TextInput id="player-input" type="text" onChange={handleChange} />
+      <h3>{!playerOne ? "Player One" : "Player Two"} please enter your name</h3>
+      <TextInput
+        id="player-input"
+        type="text"
+        value={name}
+        onChange={handleChange}
+      />
 
       <button onClick={handleClick}>Add</button>
-      <button onClick={handleNextClick}>Next</button>
     </div>
   );
 }
