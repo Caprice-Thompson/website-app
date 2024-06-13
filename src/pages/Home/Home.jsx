@@ -5,8 +5,7 @@ import "./Home.css";
 function Home() {
   return (
     <div className="container">
-      <h1>Welcome to the Project App</h1>
-      <h2> Home of Projects</h2>
+      <h1> Home of The Projects</h1>
       <StarRating numOfStars={6} />
     </div>
   );

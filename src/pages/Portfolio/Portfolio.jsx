@@ -18,7 +18,7 @@ const Portfolio = () => {
   return (
     <>
       <div>
-        <h1>Below is a list of Projects</h1>
+        <h1>Projects</h1>
       </div>
       <ProjectSelection
         handleProjectSelection={handleProjectSelection}
