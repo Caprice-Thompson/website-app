@@ -1,0 +1,8 @@
+.footerSection {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 740px;
+  margin-top: 20%;
+  margin-left: 10%;
+}

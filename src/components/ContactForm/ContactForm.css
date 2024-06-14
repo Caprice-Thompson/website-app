@@ -38,6 +38,8 @@
 .form-row #lastname,
 .form-row #subject,
 .form-row #email {
+
+
 }
 .form-container .form-row {
   height: 50px;
@@ -50,7 +52,7 @@
   background-color: #ffffff;
   border: 2px solid #fafafa;
   font-size: 0.95rem;
-  color: #1abc9c;
+  color: #0b1c9c;
   line-height: 1;
   border-radius: 5px;
   outline: none;
@@ -59,15 +61,15 @@
   margin-top: 45px;
   width: 92%;
   display: grid;
-  margin-left: 43.5%;
+  margin-left: 47.5%;
 }
 
 .form-container button:hover {
-  background-color: rgb(12, 39, 150);
+  background-color: rgb(14, 46, 175);
   color: #fff;
 }
 
-.icon {
+/* .icon {
   display: grid;
   color: rgb(1, 9, 80);
-}
+} */

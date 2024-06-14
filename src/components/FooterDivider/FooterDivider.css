@@ -1,0 +1,7 @@
+.footerDivider {
+  display: block;
+  width: 1.5px;
+  height: 15px;
+  background-color: rgb(255, 138, 239);
+  margin: 10px;
+}

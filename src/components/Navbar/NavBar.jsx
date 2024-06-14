@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Search from "../SearchBar/SearchBar";
-import "./styles.css";
+import "./NavBar.css";
 
 function NavBar() {
   return (
