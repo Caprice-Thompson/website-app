@@ -1,5 +1,6 @@
 #search {
   background-color: transparent;
+  box-shadow: none;
   border-bottom: 1px solid white;
-  border-radius: 5px;
+  border-radius: 15px;
 }

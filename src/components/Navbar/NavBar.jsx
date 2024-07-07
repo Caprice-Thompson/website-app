@@ -12,9 +12,6 @@ function NavBar() {
       <a className="aboutPage">
         <Link to="/about">About</Link>
       </a>
-      <a className="resourcesPage">
-        <Link to="/resources">Resources</Link>
-      </a>
       <a className="portfolioPage">
         <Link to="/portfolio">Portfolio</Link>
       </a>

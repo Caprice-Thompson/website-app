@@ -34,7 +34,6 @@ function ContactForm() {
   return (
     <>
       <div className="form-container">
-        <h1>Contact Us</h1>
         <div className="input-container">
           <form>
             <div className="form-row">

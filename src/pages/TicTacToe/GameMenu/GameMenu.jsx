@@ -7,12 +7,12 @@ export default function GameMenu() {
   const { setGameState, setRounds, rounds } = useContext(GameContext);
 
   function playGame() {
-    setGameState("tictactoe");
+    console.log(rounds);
+    if (rounds !== "") setGameState("tictactoe");
   }
 
   function handleRounds(event) {
     setRounds(event.target.value);
-    console.log(rounds);
   }
   return (
     <div className="game-menu-container">

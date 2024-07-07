@@ -1,10 +1,7 @@
-.projectTitle {
+.heading {
   font: 3em sans-serif;
   color: aliceblue;
   font-size: 80px;
   font-family: "Open Sans", "Lucida Sans", "Lucida Sans Regular",
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-/* .portfolio-container:hover {
-  make image clickable
-} */

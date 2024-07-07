@@ -7,6 +7,7 @@ import todo from "../../images/todo.png";
 import quiz from "../../images/quiz.jpg";
 import { useNavigate } from "react-router-dom";
 import ProjectSelection from "../../components/ProjectSelection/ProjectSelection";
+import Header from "../../components/Header/Header";
 
 const Portfolio = () => {
   const navigate = useNavigate();
@@ -17,9 +18,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <div>
-        <h1>Projects</h1>
-      </div>
+      <Header title={"Portfolio"} />
       <ProjectSelection
         handleProjectSelection={handleProjectSelection}
         nav={"tic-tac-toe"}

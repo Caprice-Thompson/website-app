@@ -1,10 +1,19 @@
-h1 {
+/* h1 {
   margin-left: 250px;
-  margin-top:150px;
+  margin-top: 150px;
   font: 3em sans-serif;
   color: aliceblue;
   font-size: 80px;
   inline-size: 1px;
   font-family: "Open Sans", "Lucida Sans", "Lucida Sans Regular",
     "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+} */
+
+.homePageImage img {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 60%;
+  top: 20%;
+  filter: contrast(100%) brightness(10);
 }
