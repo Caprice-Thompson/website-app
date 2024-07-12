@@ -1,0 +1,32 @@
+/* h3 {
+    position: static;
+    color: aliceblue;
+    padding: 10px;
+    font: 3em sans-serif;
+    align-items: normal;
+    font-size: 20px;
+  } */
+
+.player-menu-container #player-input {
+  width: 300px;
+  border: 3px solid #2756ae;
+  margin-bottom: 15px;
+}
+.sub-header-name {
+  color: rgb(48, 48, 48);
+}
+/* .name-input p {
+    color: aliceblue;
+  } */
+
+.player-menu-container {
+  padding: 0.6rem 1.3rem;
+  border: 3px solid #fafafa;
+  flex-direction: row;
+  margin-right: 50px;
+  height: 200px;
+  width: 350px;
+  background-image: url("../src/images/water.jpg");
+  display: inline-block;
+  border-radius: 15px;
+}

@@ -2,7 +2,7 @@ import "./Dropdown.css";
 
 export default function Dropdown(props) {
   return (
-    <div className="dropdown-container">
+    <>
       <select onChange={props.handleDropdown} id={props.id}>
         <option disabled selected>
           {props.label}
@@ -14,6 +14,6 @@ export default function Dropdown(props) {
             </option>
           ))}
       </select>
-    </div>
+    </>
   );
 }

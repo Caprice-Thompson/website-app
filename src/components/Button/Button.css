@@ -1,7 +1,8 @@
 .back-btn #back {
   border: 1px solid rgb(61, 200, 203);
   border-radius: 30px;
-  float: left;
+  display: flex;
+  cursor: pointer;
   margin-top: 50px;
   margin-left: 100px;
   cursor: pointer;

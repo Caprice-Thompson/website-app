@@ -1,6 +1,5 @@
 import "./TicTacToe.css";
 import React, { useState, useEffect, useContext } from "react";
-import Button from "../../../components/Button/Button.jsx";
 import { GameContext } from "../../../Helpers/Contexts";
 
 function Square({ value, onClick }) {
@@ -19,11 +18,11 @@ export default function TicTacToe() {
   const [isXTurn, setIsXTurn] = useState(true);
   const [status, setStatus] = useState("");
   const [count, setCount] = useState(1);
+  const [disabled, setDisabled] = useState(true);
   const {
     setGameState,
     playerOne,
     playerTwo,
-    setRounds,
     rounds,
     draw,
     setDraw,
@@ -33,13 +32,30 @@ export default function TicTacToe() {
 
   useEffect(() => {
     if (!getWinner(squares) && squares.every((item) => item !== "")) {
-      setStatus("This is a draw! Please restart the game");
+      setStatus(
+        `This is a draw! Click ${
+          count < rounds ? "to play next round" : " for leaderboard"
+        }`
+      );
       setDraw(draw + 1);
+      setDisabled(false);
     } else if (getWinner(squares)) {
-      setStatus(`Winner is ${getWinner(squares)}.\nClick to play next round`);
       if (getWinner(squares) === "X") {
+        setStatus(
+          `Winner is ${playerOne}! \n Click ${
+            count < rounds ? "to play next round" : " for leaderboard"
+          }`
+        );
         setPlayerOneWin(playerOneWin + 1);
       }
+      if (getWinner(squares) === "O") {
+        setStatus(
+          `Winner is ${playerTwo}!\n Click ${
+            count < rounds ? "to play next round" : " for leaderboard"
+          }`
+        );
+      }
+      setDisabled(false);
     } else {
       setStatus(`It's ${isXTurn ? `${playerOne}` : `${playerTwo}`} turn`);
     }
@@ -78,6 +94,7 @@ export default function TicTacToe() {
   }
 
   function handleRound() {
+    setDisabled(false);
     setIsXTurn(true);
     setSquares(Array(9).fill(""));
     if (count < rounds) {
@@ -88,8 +105,7 @@ export default function TicTacToe() {
   }
 
   return (
-    <>
-      <Button />
+    <div className="tic-tac-toe">
       <div className="tic-tac-toe-container">
         <h3>Round: {count}</h3>
         <div className="row">
@@ -109,11 +125,13 @@ export default function TicTacToe() {
           <Square value={squares[7]} onClick={() => handleClick(7)} />
           <Square value={squares[8]} onClick={() => handleClick(8)} />
         </div>
-        <div className="status">{status}</div>
         <div className="restart">
-          <button onClick={() => handleRound()}>Next Round</button>
+          <button disabled={disabled} onClick={() => handleRound()}>
+            {count < rounds ? "Next Round" : "Leaderboard"}
+          </button>
         </div>
+        <div className="status">{status}</div>
       </div>
-    </>
+    </div>
   );
 }

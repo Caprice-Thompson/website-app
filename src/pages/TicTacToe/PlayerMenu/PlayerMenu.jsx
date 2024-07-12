@@ -1,25 +1,23 @@
 import React, { useState, useContext } from "react";
 import { GameContext } from "../../../Helpers/Contexts";
 import TextInput from "../../../components/Input/TextInput";
+import Button from "../../../components/Button/Button.jsx";
+import "./PlayerMenu.css";
 
 export default function PlayerMenu() {
   const { setGameState, setPlayerOne, setPlayerTwo, playerOne, playerTwo } =
     useContext(GameContext);
   const [name, setName] = useState("");
-  const [addClickCount, setAddClickCount] = useState(0);
 
   function handleClick() {
     if (name.trim() !== "") {
       if (!playerOne) {
         setPlayerOne(name.trim());
+        setName("");
       } else if (!playerTwo) {
         setPlayerTwo(name.trim());
+        setGameState("gameMenu");
       }
-      setName("");
-      setAddClickCount((prevCount) => prevCount + 1);
-    }
-    if (addClickCount >= 1) {
-      setGameState("gameMenu");
     }
   }
 
@@ -28,16 +26,21 @@ export default function PlayerMenu() {
   }
 
   return (
-    <div className="player-menu-container">
-      <h3>{!playerOne ? "Player One" : "Player Two"} please enter your name</h3>
-      <TextInput
-        id="player-input"
-        type="text"
-        value={name}
-        onChange={handleChange}
-      />
+    <>
+      <Button />
+      <div className="player-menu-container">
+        <h3 className="sub-header-name">
+          {!playerOne ? "Player one" : "Player two"} please enter your name
+        </h3>
+        <TextInput
+          id="player-input"
+          type="text"
+          value={name}
+          onChange={handleChange}
+        />
 
-      <button onClick={handleClick}>Add</button>
-    </div>
+        <button onClick={handleClick}>Add</button>
+      </div>
+    </>
   );
 }

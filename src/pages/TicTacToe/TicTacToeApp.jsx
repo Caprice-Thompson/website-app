@@ -8,7 +8,7 @@ import { GameContext } from "../../Helpers/Contexts";
 
 export default function TicTacToeApp() {
   const [gameState, setGameState] = useState("playerMenu");
-  const [rounds, setRounds] = useState("");
+  const [rounds, setRounds] = useState(1);
   // later - pass as an array, .map and then update with player 2
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
@@ -16,7 +16,7 @@ export default function TicTacToeApp() {
   const [playerOneWin, setPlayerOneWin] = useState(0);
   return (
     <div className="tictactoe">
-      <h1>TicTacToe App</h1>
+      <h1 className="header">TicTacToe App</h1>
       <GameContext.Provider
         value={{
           gameState,

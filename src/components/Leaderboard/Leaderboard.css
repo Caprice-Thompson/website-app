@@ -7,6 +7,12 @@
   width: 950px;
   height: auto;
   margin-left: 350px;
+  border: 3px solid #fafafa;
+  flex-direction: row;
+  margin-right: 50px;
+  background-image: url("../src/images/water.jpg");
+  display: inline-block;
+  border-radius: 15px;
 }
 
 .leader-board-title {
@@ -27,7 +33,7 @@ table {
 }
 
 table th {
-  background-color: #007bff;
+  background-color: #bf3ed8;
   color: white;
   padding: 12px;
   font-size: 16px;
